@@ -1,0 +1,419 @@
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body,
+.role-selection-wrapper {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #f7f9fa;
+    color: #17252d;
+    min-height: 100vh;
+    width: 100%;
+}
+
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+.navbar {
+
+    height: 98px;
+
+    background: #004d3d;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 0 44px;
+
+    color: white;
+}
+
+
+.brand {
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+.brand a {
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 34px;
+
+    font-weight: 700;
+
+    line-height: 1;
+}
+
+
+.brand span {
+
+    margin-top: 7px;
+
+    font-size: 16px;
+
+    color: #e4eeee;
+}
+
+
+/* =========================================
+   MAIN
+========================================= */
+
+.role-container {
+
+    min-height: calc(100vh - 98px);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 50px 30px;
+}
+
+
+/* =========================================
+   CARD
+========================================= */
+
+.role-card {
+
+    width: 760px;
+
+    max-width: 100%;
+
+    background: white;
+
+    border: 1px solid #dce1e4;
+
+    border-radius: 10px;
+
+    padding: 45px 55px 35px;
+
+    box-shadow:
+        0 7px 25px rgba(0,
+            0,
+            0,
+            0.07);
+}
+
+
+/* =========================================
+   SUCCESS
+========================================= */
+
+.success-icon {
+
+    width: 52px;
+
+    height: 52px;
+
+    margin: 0 auto 15px;
+
+    border-radius: 50%;
+
+    background: #e4f6ef;
+
+    color: #00634e;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 27px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================
+   HEADING
+========================================= */
+
+.role-heading {
+
+    text-align: center;
+
+    margin-bottom: 35px;
+}
+
+
+.role-heading h1 {
+
+    font-size: 30px;
+
+    color: #17252d;
+
+    margin-bottom: 10px;
+}
+
+
+.role-heading p {
+
+    font-size: 16px;
+
+    color: #64717a;
+}
+
+
+/* =========================================
+   QUESTION
+========================================= */
+
+.question {
+
+    margin-bottom: 20px;
+}
+
+
+.question h2 {
+
+    font-size: 21px;
+
+    margin-bottom: 6px;
+}
+
+
+.question p {
+
+    font-size: 14px;
+
+    color: #68757d;
+}
+
+
+/* =========================================
+   ROLE GRID
+========================================= */
+
+.role-grid {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 14px;
+}
+
+
+/* =========================================
+   ROLE OPTION
+========================================= */
+
+.role-option {
+
+    position: relative;
+
+    min-height: 145px;
+
+    background: white;
+
+    border: 1px solid #ccd5d9;
+
+    border-radius: 7px;
+
+    padding: 22px 42px 20px 20px;
+
+    text-align: left;
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 15px;
+
+    cursor: pointer;
+
+    transition:
+        border-color 0.2s,
+        box-shadow 0.2s,
+        transform 0.2s;
+}
+
+
+.role-option:hover {
+
+    border-color: #00634e;
+
+    box-shadow:
+        0 5px 16px rgba(0,
+            99,
+            78,
+            0.10);
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================
+   ROLE ICON
+========================================= */
+
+.role-icon {
+
+    width: 48px;
+
+    height: 48px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: #e7f4ef;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 22px;
+}
+
+
+/* =========================================
+   ROLE CONTENT
+========================================= */
+
+.role-content h3 {
+
+    font-size: 17px;
+
+    color: #17252d;
+
+    margin-bottom: 7px;
+}
+
+
+.role-content p {
+
+    font-size: 13px;
+
+    line-height: 1.55;
+
+    color: #68757d;
+}
+
+
+/* =========================================
+   ARROW
+========================================= */
+
+.arrow {
+
+    position: absolute;
+
+    right: 17px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    font-size: 20px;
+
+    color: #00634e;
+
+    transition: 0.2s;
+}
+
+
+.role-option:hover .arrow {
+
+    transform:
+        translate(4px, -50%);
+}
+
+
+/* =========================================
+   BOTTOM TEXT
+========================================= */
+
+.bottom-text {
+
+    text-align: center;
+
+    margin-top: 25px;
+
+    font-size: 13px;
+
+    color: #7a858c;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 650px) {
+
+    .navbar {
+
+        height: 75px;
+
+        padding: 0 20px;
+    }
+
+
+    .brand a {
+
+        font-size: 27px;
+    }
+
+
+    .brand span {
+
+        font-size: 12px;
+    }
+
+
+    .role-container {
+
+        padding: 30px 15px;
+
+        align-items: flex-start;
+    }
+
+
+    .role-card {
+
+        padding: 35px 22px 30px;
+    }
+
+
+    .role-heading h1 {
+
+        font-size: 27px;
+    }
+
+
+    .role-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .role-option {
+
+        min-height: 125px;
+    }
+
+}

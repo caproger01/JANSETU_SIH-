@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JanSetu - Government Command Center</title>
+    <!-- Leaflet Map CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <!-- Shared Citizen Styles -->
+    <link rel="stylesheet" href="citizen-dashboard.css">
+    <!-- Government Dashboard Customizations -->
+    <link rel="stylesheet" href="government-dashboard.css">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+    <!-- Top Header -->
+    <header class="top-header">
+        <div class="header-brand">
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <span style="font-size: 26px;">🇮🇳</span>
+                <div>
+                    <h1>JanSetu</h1>
+                    <p>Government Command Center &bull; Municipal Analytics</p>
+                </div>
+            </div>
+        </div>
+        <div class="header-actions">
+            <button class="notif-btn" id="open-cmd-notif-btn" aria-label="Notifications" title="Government Alerts">
+                <i data-lucide="bell"></i>
+                <span class="notif-badge" id="cmd-notif-badge">1</span>
+            </button>
+            <div style="text-align: right;">
+                <span class="govt-badge-text" style="display:block; font-size:13px; font-weight:700; color:var(--color-primary);">Ward 12 Administration</span>
+                <span style="font-size: 11px; color: var(--color-text-sub);">Municipal Authority Panel</span>
+            </div>
+            <button type="button" class="logout-btn-header" id="govt-logout-btn" title="Sign Out">
+                <i data-lucide="log-out"></i>
+                <span>Logout</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="citizen-dashboard.html">Citizens</a></li>
+            <li><a href="university-dashboard.html">Universities</a></li>
+            <li><a href="industry-dashboard.html">Industry</a></li>
+            <li><a href="government-dashboard.html" class="active" style="border-bottom: 3px solid #FF9933;">Government Command Center</a></li>
+        </ul>
+    </nav>
+
+    <!-- Breadcrumbs -->
+    <div class="breadcrumb-bar">
+        <div class="breadcrumbs">
+            <a href="../index.html">Home</a>
+            <span class="separator">&gt;</span>
+            <a href="government-dashboard.html">Government</a>
+            <span class="separator">&gt;</span>
+            <span>Command Center & Grievance Stream</span>
+        </div>
+        <div>
+            <a href="../role.html" class="back-link">&larr; Switch Role</a>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="dashboard-body">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="role-badge-box">
+                <h2>Authority</h2>
+                <span>GOVT ADMIN PANEL</span>
+            </div>
+
+            <nav class="sidebar-menu">
+                <a href="#" class="sidebar-link active" id="menu-cmd-center">
+                    <i data-lucide="layout-dashboard"></i>
+                    <span>Command Center</span>
+                </a>
+                <a href="#cmd-map" class="sidebar-link" id="menu-gis-map">
+                    <i data-lucide="map"></i>
+                    <span>GIS Heatmap Layer</span>
+                </a>
+                <a href="#" class="sidebar-link" id="menu-ai-insights">
+                    <i data-lucide="sparkles"></i>
+                    <span>AI Insights & Clustering</span>
+                </a>
+                <a href="#" class="sidebar-link" id="menu-cmd-notifs">
+                    <i data-lucide="bell"></i>
+                    <span>SLA & Escalations</span>
+                </a>
+                <a href="university-dashboard.html" class="sidebar-link">
+                    <i data-lucide="graduation-cap"></i>
+                    <span>University Projects</span>
+                </a>
+                <a href="industry-dashboard.html" class="sidebar-link">
+                    <i data-lucide="building-2"></i>
+                    <span>Industry Partners</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-panel">
+
+            <!-- Title Area -->
+            <section class="panel-heading" style="display: flex; justify-content: space-between; align-items: flex-end;">
+                <div>
+                    <h2>Municipal Analytics & Grievance Stream</h2>
+                    <p>Real-time oversight tracking municipal efficiency, ward analytics, and citizen submissions synced from JanSetu portals.</p>
+                </div>
+                <div>
+                    <button type="button" class="btn-ai-analyze" id="btn-open-ai-summary" style="background:#00563F;">
+                        <i data-lucide="brain"></i>
+                        <span>View JanSetu AI Insights</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- 5 KPI Stats Metric Cards -->
+            <section class="stats-row" style="grid-template-columns: repeat(5, 1fr) !important;">
+                <div class="metric-card">
+                    <span class="metric-title">Total Community Reports</span>
+                    <div class="metric-number" id="kpi-total">0</div>
+                    <p class="metric-desc">Synced from citizens</p>
+                </div>
+
+                <div class="metric-card">
+                    <span class="metric-title">Critical Problems</span>
+                    <div class="metric-number" style="color: #DC2626;" id="kpi-critical">0</div>
+                    <p class="metric-desc">Severity &ge; 8</p>
+                </div>
+
+                <div class="metric-card">
+                    <span class="metric-title">Active Projects</span>
+                    <div class="metric-number" style="color: #2563EB;" id="kpi-active-projects">2</div>
+                    <p class="metric-desc">Assigned to academia</p>
+                </div>
+
+                <div class="metric-card">
+                    <span class="metric-title">Resolved Problems</span>
+                    <div class="metric-number" style="color: #059669;" id="kpi-resolved">0</div>
+                    <p class="metric-desc">Verified completed</p>
+                </div>
+
+                <div class="metric-card">
+                    <span class="metric-title">People Impacted</span>
+                    <div class="metric-number" id="kpi-impacted">0</div>
+                    <p class="metric-desc">Across all wards</p>
+                </div>
+            </section>
+
+            <!-- Split Layout: Map and Category Chart -->
+            <section class="split-section">
+
+                <!-- GIS Location Map Box -->
+                <div class="box-card">
+                    <div class="box-header">
+                        <h3>Municipal GIS Geotag Map</h3>
+                        <span class="live-indicator"><span class="pulse-dot"></span> Live Citizen Coordinates</span>
+                    </div>
+                    <div class="map-container">
+                        <div id="cmd-map"></div>
+                    </div>
+                </div>
+
+                <!-- Category Breakdown -->
+                <div class="box-card">
+                    <div class="box-header">
+                        <h3>Category Breakdown Distribution</h3>
+                        <span style="font-size: 11px; color: #555;">Civic Ingestion</span>
+                    </div>
+                    <div class="analytics-content-pad" id="cmd-chart-container" style="justify-content: center; height: 100%;">
+                        <!-- Dynamically populated category progress bars -->
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- Full Width Table Box -->
+            <section class="box-card" style="margin-top: 16px;">
+                <div class="box-header">
+                    <div>
+                        <h3>Ward Efficiency & Grievance Stream</h3>
+                        <span style="font-size:11px; color:var(--color-text-sub);">Includes citizen reports submitted during this demo session</span>
+                    </div>
+                    <span class="live-indicator"><span class="pulse-dot"></span> Real-Time Sync</span>
+                </div>
+                <div class="table-scroll" style="max-height: 280px;">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>PROBLEM TITLE & ID</th>
+                                <th>WARD / ZONE</th>
+                                <th>CATEGORY</th>
+                                <th>SEVERITY & URGENCY</th>
+                                <th>STATUS</th>
+                                <th>ACTION</th>
+                            </tr>
+                        </thead>
+                        <tbody id="cmd-table-tbody">
+                            <!-- Dynamically populated from shared localStorage -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- MANAGE PROBLEM MODAL (STATUS UPDATE & REMARKS) -->
+    <div class="modal-backdrop" id="manage-modal">
+        <div class="modal-box" style="max-width: 620px;">
+            <div class="modal-head">
+                <div>
+                    <h3 id="mgmt-title">Manage Civic Problem</h3>
+                    <p>Problem ID: <strong id="mgmt-id" style="color:var(--color-primary);">CB-2026-00124</strong> &bull; Ward: <span id="mgmt-ward">Ward 12</span></p>
+                </div>
+                <button type="button" class="close-modal-btn" id="close-mgmt-btn">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+
+            <div class="modal-content-form">
+                <div class="details-card" style="margin-bottom: 12px;">
+                    <span class="d-label">Citizen Description</span>
+                    <p id="mgmt-desc" style="font-size:12px; color:#374151; margin-top:2px;">Description...</p>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-item">
+                        <label for="mgmt-status-select">Update Official Status *</label>
+                        <select id="mgmt-status-select" style="padding:8px 10px; border:1px solid #D8DDDD; border-radius:4px; font-size:13px; font-weight:600;">
+                            <option value="SUBMITTED">SUBMITTED</option>
+                            <option value="UNDER REVIEW">UNDER REVIEW</option>
+                            <option value="UNIVERSITY ASSIGNED">UNIVERSITY ASSIGNED</option>
+                            <option value="RESOLVED">RESOLVED</option>
+                        </select>
+                    </div>
+
+                    <div class="form-item">
+                        <label>Assigned Department</label>
+                        <input type="text" id="mgmt-dept" value="Public Works Department (PWD)" style="padding:8px 10px; border:1px solid #D8DDDD; border-radius:4px; font-size:13px;">
+                    </div>
+                </div>
+
+                <div class="form-item" style="margin-top: 12px;">
+                    <label for="mgmt-remarks">Administrative Action / Public Remarks</label>
+                    <textarea id="mgmt-remarks" rows="2" placeholder="e.g. Field engineering team dispatched for site survey..." style="width:100%; padding:8px 10px; border:1px solid #D8DDDD; border-radius:4px; font-size:12px;"></textarea>
+                </div>
+            </div>
+
+            <div class="modal-foot">
+                <button type="button" class="btn-cancel" id="cancel-mgmt-btn">Cancel</button>
+                <button type="button" class="btn-primary" id="save-mgmt-btn">Save & Update Status</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI INSIGHTS MODAL -->
+    <div class="modal-backdrop" id="ai-insights-modal">
+        <div class="modal-box" style="max-width: 660px;">
+            <div class="modal-head">
+                <div>
+                    <div style="display:flex; align-items:center; gap:8px;">
+                        <i data-lucide="brain" style="color:var(--color-primary);"></i>
+                        <h3>CivicBridge AI Automated Insights</h3>
+                    </div>
+                    <p>Autonomous spatial clustering, risk scoring, and challenge recommendations</p>
+                </div>
+                <button type="button" class="close-modal-btn" id="close-ai-modal-btn">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+
+            <div class="modal-content-form">
+                <div class="ai-summary-box" style="background:#F0FDF4; border:1px solid #86EFAC; margin-bottom:14px;">
+                    <span class="ai-badge-prototype">AI-Assisted Municipal Synthesis &bull; Prototype</span>
+                    <p style="margin-top:6px; font-size:13px; color:#14532D; line-height:1.5;">
+                        <strong>Key Strategic Insight:</strong> Drainage and sanitation grievances represent <strong>42% of total incidents</strong> this monsoon cycle. Geospatial clustering indicates Ward 12 and Ward 15 have chronic stormwater overflow bottlenecks suitable for University Academic Challenge assignment.
+                    </p>
+                </div>
+
+                <div class="details-grid">
+                    <div class="details-card">
+                        <span class="d-label">Identified Hotspot</span>
+                        <strong class="d-value" style="color:#DC2626;">Ward 15 / Rural Sector 4</strong>
+                        <p style="font-size:11px; color:#666; margin-top:2px;">3 clustered drainage failure complaints within 1.2km radius.</p>
+                    </div>
+
+                    <div class="details-card">
+                        <span class="d-label">Recommended University Challenge</span>
+                        <strong class="d-value" style="color:var(--color-primary);">CHL-001: Rural Flooding Mitigation</strong>
+                        <p style="font-size:11px; color:#666; margin-top:2px;">Assigned to IIT Roorkee / Civil Engineering research group.</p>
+                    </div>
+                </div>
+
+                <div style="margin-top:14px; background:#F8FAFC; border:1px solid #E2E8F0; padding:12px; border-radius:6px;">
+                    <span style="font-size:12px; font-weight:700; color:#1E293B;">Predictive SLA Breach Risk</span>
+                    <p style="font-size:12px; color:#475569; margin-top:4px;">
+                        Road cave-in report <strong>#CB-2026-00125</strong> in Ward 8 is pending for &gt;36 hours. Priority escalation advised to prevent traffic blockage during weekday rush hour.
+                    </p>
+                </div>
+            </div>
+
+            <div class="modal-foot">
+                <button type="button" class="btn-cancel" id="dismiss-ai-modal-btn">Close Insights</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- GOVERNMENT NOTIFICATIONS MODAL -->
+    <div class="modal-backdrop" id="govt-notif-modal">
+        <div class="modal-box" style="max-width: 580px;">
+            <div class="modal-head">
+                <div>
+                    <h3>Government Alerts & Escalations</h3>
+                    <p>Live feed of citizen grievance arrivals and academic partnerships.</p>
+                </div>
+                <button type="button" class="close-modal-btn" id="close-govt-notif-btn">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+
+            <div class="modal-content-form">
+                <div class="notif-list" id="govt-notif-list">
+                    <!-- Populated dynamically -->
+                </div>
+            </div>
+
+            <div class="modal-foot">
+                <button type="button" class="btn-cancel" id="dismiss-govt-notif-btn">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Leaflet Map JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <!-- Centralized Mock Data & State Management -->
+    <script src="../mockData.js"></script>
+    <!-- Government Dashboard Logic JS -->
+    <script src="government-dashboard.js"></script>
+</body>
+
+</html>

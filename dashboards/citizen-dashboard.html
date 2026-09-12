@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JanSetu - Citizen Dashboard</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="citizen-dashboard.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+    <header class="top-header">
+        <div class="header-brand">
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <span style="font-size: 26px;">🇮🇳</span>
+                <div>
+                    <h1>JanSetu</h1>
+                    <p>Government Civic Portal &bull; Citizen Portal</p>
+                </div>
+            </div>
+        </div>
+        <div class="header-actions">
+            <button class="notif-btn" id="open-notif-btn" aria-label="Notifications" title="Notifications">
+                <i data-lucide="bell"></i>
+                <span class="notif-badge" id="notif-count-badge">2</span>
+            </button>
+            <div style="font-size: 13px; font-weight: 600; color: var(--color-text-main);">
+                <span id="user-display-name">Citizen Account</span>
+            </div>
+            <button type="button" class="logout-btn-header" id="citizen-logout-btn" title="Sign Out">
+                <i data-lucide="log-out"></i>
+                <span>Logout</span>
+            </button>
+        </div>
+    </header>
+
+    <nav class="top-nav">
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="citizen-dashboard.html" class="active" style="border-bottom: 3px solid #FF9933;">Citizens</a></li>
+            <li><a href="university-dashboard.html">Universities</a></li>
+            <li><a href="industry-dashboard.html">Industry</a></li>
+            <li><a href="government-dashboard.html">Government Command Center</a></li>
+        </ul>
+    </nav>
+
+    <!-- BREADCRUMBS -->
+    <div class="breadcrumb-bar">
+        <div class="breadcrumbs">
+            <a href="../index.html">Home</a>
+            <span class="separator">&gt;</span>
+            <a href="citizen-dashboard.html">Citizens</a>
+            <span class="separator">&gt;</span>
+            <span>My Reported Problems</span>
+        </div>
+        <div>
+            <a href="../role.html" class="back-link">&larr; Switch Role</a>
+        </div>
+    </div>
+
+    <div class="dashboard-body">
+
+        <aside class="sidebar">
+            <div class="role-badge-box">
+                <h2>Citizen</h2>
+                <span>CITIZEN PANEL</span>
+            </div>
+
+            <nav class="sidebar-menu">
+                <a href="#" class="sidebar-link active" id="menu-issues-link">
+                    <i data-lucide="message-square"></i>
+                    <span>My Issues</span>
+                </a>
+
+                <a href="#" class="sidebar-link" id="menu-report-link">
+                    <i data-lucide="plus-circle"></i>
+                    <span>Report Problem</span>
+                </a>
+
+                <a href="#" class="sidebar-link" id="menu-notices-link">
+                    <i data-lucide="newspaper"></i>
+                    <span>Notices & Schemes</span>
+                </a>
+
+                <a href="#" class="sidebar-link" id="menu-analytics-link">
+                    <i data-lucide="line-chart"></i>
+                    <span>Personal Analytics</span>
+                </a>
+
+                <a href="#" class="sidebar-link" id="menu-notifications-link">
+                    <i data-lucide="bell"></i>
+                    <span>Notifications</span>
+                </a>
+            </nav>
+        </aside>
+
+        <main class="main-panel">
+
+            <section class="panel-heading">
+                <h2>Citizen Overview</h2>
+                <p>Submit, track, and collaborate on civic issues and community projects.</p>
+            </section>
+
+            <section class="stats-row">
+                <div class="metric-card">
+                    <span class="metric-title">Active Public Requests</span>
+                    <div class="metric-number">24</div>
+                    <p class="metric-desc">Open for collaboration or under review</p>
+                </div>
+
+                <div class="metric-card">
+                    <span class="metric-title">Community Projects Ongoing</span>
+                    <div class="metric-number">15</div>
+                    <p class="metric-desc">Across various wards and categories</p>
+                </div>
+
+                <div class="metric-card">
+                    <span class="metric-title">Participating Citizens</span>
+                    <div class="metric-number">1,200+</div>
+                    <p class="metric-desc">Engaged across the community</p>
+                </div>
+            </section>
+
+            <section class="split-section">
+
+                <div class="box-card table-box">
+                    <div class="box-header">
+                        <h3>My Submitted Issues</h3>
+                        <a href="#" class="all-link">View all issues &rarr;</a>
+                    </div>
+
+                    <div class="table-scroll">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>ISSUE TITLE</th>
+                                    <th>STATUS</th>
+                                    <th>CATEGORY / LOCATION</th>
+                                    <th>ATTACHMENTS</th>
+                                    <th>ACTION</th>
+                                </tr>
+                            </thead>
+                            <tbody id="issues-body">
+                                <tr class="issue-item selected" data-lat="28.6139" data-lng="77.2090"
+                                    data-title="Streetlight outage in Ward 12">
+                                    <td>
+                                        <span class="issue-title-text">Streetlight outage in Ward 12</span>
+                                        <span class="issue-meta-text">submitted 2 days ago</span>
+                                    </td>
+                                    <td>
+                                        <span class="status-pill status-submitted">SUBMITTED</span>
+                                    </td>
+                                    <td>Public Infrastructure</td>
+                                    <td>
+                                        <span class="attachment-tag"><i data-lucide="image"></i> 2 Photos</span>
+                                    </td>
+                                    <td>
+                                        <a href="#" class="view-btn">View &rsaquo;</a>
+                                    </td>
+                                </tr>
+
+                                <tr class="issue-item" data-lat="28.6219" data-lng="77.2150"
+                                    data-title="Pothole on Main Street">
+                                    <td>
+                                        <span class="issue-title-text">Pothole on Main Street</span>
+                                        <span class="issue-meta-text">reported 5 days ago</span>
+                                    </td>
+                                    <td>
+                                        <span class="status-pill status-review">UNDER REVIEW</span>
+                                    </td>
+                                    <td>Roadways</td>
+                                    <td>
+                                        <span class="attachment-tag"><i data-lucide="image"></i> 1 Photo</span>
+                                    </td>
+                                    <td>
+                                        <a href="#" class="view-btn">View &rsaquo;</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="table-action-footer">
+                        <button type="button" class="btn-primary" id="open-report-btn">
+                            <i data-lucide="plus-circle"></i>
+                            <span>Report New Problem</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="box-card map-box">
+                    <div class="box-header">
+                        <h3>Problem Location Map</h3>
+                    </div>
+                    <div class="map-container">
+                        <div id="citizen-map"></div>
+                        <div class="map-tag">
+                            <i data-lucide="layers"></i>
+                            <span>Ward boundaries</span>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- Report Problem Modal With Photo Upload Option -->
+    <div class="modal-backdrop" id="report-modal">
+        <div class="modal-box">
+            <div class="modal-head">
+                <div>
+                    <h3>Report New Civic Problem</h3>
+                    <p>Submit problem details and site photographs for verified authority review.</p>
+                </div>
+                <button type="button" class="close-modal-btn" id="close-report-btn">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+
+            <form id="report-form">
+                <div class="modal-content-form">
+                    <div class="form-item">
+                        <label for="input-title">Problem Title *</label>
+                        <input type="text" id="input-title" placeholder="e.g., Water pipeline leakage near Market"
+                            required>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-item">
+                            <label for="input-category">Category *</label>
+                            <select id="input-category" required>
+                                <option value="" disabled selected>Select Category</option>
+                                <option value="Public Infrastructure">Public Infrastructure</option>
+                                <option value="Roadways">Roadways</option>
+                                <option value="Sanitation">Sanitation</option>
+                                <option value="Electricity">Electricity</option>
+                            </select>
+                        </div>
+
+                        <div class="form-item">
+                            <label for="input-ward">Ward / Area *</label>
+                            <input type="text" id="input-ward" placeholder="e.g., Ward 8" required>
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-item">
+                            <label for="input-lat">Latitude</label>
+                            <input type="number" step="any" id="input-lat" value="28.6185" required>
+                        </div>
+                        <div class="form-item">
+                            <label for="input-lng">Longitude</label>
+                            <input type="number" step="any" id="input-lng" value="77.2120" required>
+                        </div>
+                    </div>
+
+                    <div class="form-item">
+                        <label for="input-desc">Description</label>
+                        <textarea id="input-desc" rows="2" placeholder="Provide details or landmark..."
+                            required></textarea>
+                    </div>
+
+                    <!-- Image Upload Option Inside the Form -->
+                    <div class="form-item">
+                        <label>Verification Photos (Shared with Gov, Universities & Industry)</label>
+                        <div class="upload-zone" id="upload-dropzone">
+                            <input type="file" id="input-images" accept="image/png, image/jpeg, image/webp" multiple
+                                class="file-hidden-input">
+                            <div class="upload-zone-content">
+                                <i data-lucide="upload-cloud"></i>
+                                <span>Click or drag site photographs (JPG, PNG)</span>
+                                <p>Images will be accessible to verifying agencies.</p>
+                            </div>
+                        </div>
+                        <div class="image-preview-strip" id="preview-strip"></div>
+                    </div>
+
+                    <!-- AI ANALYSIS TRIGGER BOX -->
+                    <div class="ai-analysis-trigger-box">
+                        <div class="ai-trigger-info">
+                            <h4><i data-lucide="sparkles"></i> CivicBridge AI Pre-Screening</h4>
+                            <p>Verify category, calculate severity index, and detect duplicate community reports.</p>
+                        </div>
+                        <button type="button" class="btn-ai-analyze" id="btn-run-ai">
+                            <i data-lucide="brain"></i>
+                            <span>Analyze Problem</span>
+                        </button>
+                    </div>
+
+                    <!-- AI LOADING STATE -->
+                    <div class="ai-loading-panel" id="ai-loading-panel">
+                        <div class="ai-spinner"></div>
+                        <div class="ai-loading-text">CivicBridge AI is analyzing your problem...</div>
+                        <div class="ai-loading-subtext">Evaluating category classification, urgency metrics, and geo-spatial duplicate clusters</div>
+                    </div>
+
+                    <!-- AI RESULTS PANEL -->
+                    <div class="ai-results-panel" id="ai-results-panel">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span class="ai-badge-prototype">AI-assisted analysis &mdash; prototype</span>
+                            <span style="font-size: 11px; color: #059669; font-weight: 600;"><i data-lucide="check-circle" style="width:12px; height:12px; display:inline;"></i> Classification Complete</span>
+                        </div>
+
+                        <div class="ai-grid-metrics">
+                            <div class="ai-metric-item">
+                                <span>Category / Sub</span>
+                                <strong id="ai-res-category">Water & Sanitation &bull; Drainage</strong>
+                            </div>
+                            <div class="ai-metric-item">
+                                <span>Severity & Urgency</span>
+                                <strong id="ai-res-severity" style="color: #DC2626;">8/10 &bull; HIGH</strong>
+                            </div>
+                            <div class="ai-metric-item">
+                                <span>Est. Affected People</span>
+                                <strong id="ai-res-affected">500 Residents</strong>
+                            </div>
+                        </div>
+
+                        <div class="ai-summary-box">
+                            <p id="ai-res-summary"><strong>AI Summary:</strong> Repeated flooding appears to be related to inadequate drainage infrastructure.</p>
+                        </div>
+
+                        <div style="font-size: 11px; font-weight: 600; color: #4B5563; margin-bottom: 4px;">Extracted Civic Keywords:</div>
+                        <div class="ai-keywords" id="ai-res-keywords">
+                            <span class="ai-keyword-tag">#Drainage</span>
+                            <span class="ai-keyword-tag">#Flooding</span>
+                            <span class="ai-keyword-tag">#Road</span>
+                            <span class="ai-keyword-tag">#Rainfall</span>
+                            <span class="ai-keyword-tag">#Ward12</span>
+                        </div>
+
+                        <!-- DUPLICATE DETECTION RESULTS -->
+                        <div class="duplicates-panel">
+                            <h5><i data-lucide="alert-triangle" style="width: 14px; height: 14px;"></i> Potentially Related Reports (Duplicate Detection)</h5>
+                            
+                            <div class="duplicate-item">
+                                <div>
+                                    <strong>Drainage failure near Main Road</strong>
+                                    <span class="duplicate-similarity">92% similarity</span>
+                                </div>
+                                <div class="duplicate-actions">
+                                    <button type="button" onclick="alert('Viewing existing report: Drainage failure near Main Road (#CB-2026-00126)')">View</button>
+                                    <button type="button" onclick="alert('Linked your submission as a supporting grievance to #CB-2026-00126')">Merge</button>
+                                </div>
+                            </div>
+
+                            <div class="duplicate-item">
+                                <div>
+                                    <strong>Water accumulation near School Road</strong>
+                                    <span class="duplicate-similarity">87% similarity</span>
+                                </div>
+                                <div class="duplicate-actions">
+                                    <button type="button" onclick="alert('Viewing existing report: Water accumulation near School Road')">View</button>
+                                    <button type="button" onclick="alert('Linked your submission as a supporting grievance')">Merge</button>
+                                </div>
+                            </div>
+
+                            <div class="duplicate-item">
+                                <div>
+                                    <strong>Blocked drainage in Ward 12</strong>
+                                    <span class="duplicate-similarity">81% similarity</span>
+                                </div>
+                                <div class="duplicate-actions">
+                                    <button type="button" onclick="alert('Viewing existing report: Blocked drainage in Ward 12')">View</button>
+                                    <button type="button" onclick="alert('Linked your submission as a supporting grievance')">Merge</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="modal-foot">
+                    <button type="button" class="btn-cancel" id="cancel-report-btn">Cancel</button>
+                    <button type="submit" class="btn-primary" id="btn-submit-problem">Submit Problem</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Government Notices & Schemes Viewer Modal -->
+    <div class="modal-backdrop" id="notices-modal">
+        <div class="modal-box notices-modal-box">
+            <div class="modal-head">
+                <div>
+                    <h3>Official Notices & Government Schemes</h3>
+                    <p>Verified circulars, notifications, and active public welfare schemes.</p>
+                </div>
+                <button type="button" class="close-modal-btn" id="close-notices-btn">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+
+            <div class="modal-content-form">
+                <div class="notices-filter-bar">
+                    <button type="button" class="filter-tab active" data-filter="all">All Updates</button>
+                    <button type="button" class="filter-tab" data-filter="notice">Circulars & Notices</button>
+                    <button type="button" class="filter-tab" data-filter="scheme">Govt Schemes</button>
+                </div>
+
+                <div class="notices-list-container">
+                    <!-- Item 1 -->
+                    <div class="notice-card-item" data-type="notice">
+                        <div class="notice-badge notice-type">NOTICE</div>
+                        <div class="notice-info">
+                            <h4>Municipal Water Supply Maintenance Advisory - Ward 12</h4>
+                            <p>Scheduled pipeline upgrades will affect water pressure on Tuesday between 10:00 AM and
+                                4:00 PM.</p>
+                            <div class="notice-meta">
+                                <span><i data-lucide="calendar"></i> Sep 04, 2026</span>
+                                <a href="https://mohua.gov.in" target="_blank" class="notice-link">View Official
+                                    Circular &rarr;</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="notice-card-item" data-type="scheme">
+                        <div class="notice-badge scheme-type">SCHEME</div>
+                        <div class="notice-info">
+                            <h4>PM Surya Ghar: Muft Bijli Yojana</h4>
+                            <p>Central financial assistance for installing rooftop solar panels up to 3kW for
+                                residential households.</p>
+                            <div class="notice-meta">
+                                <span><i data-lucide="calendar"></i> Active Scheme</span>
+                                <a href="https://pmsuryaghar.gov.in" target="_blank" class="notice-link">Apply / Check
+                                    Eligibility &rarr;</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="notice-card-item" data-type="notice">
+                        <div class="notice-badge notice-type">NOTICE</div>
+                        <div class="notice-info">
+                            <h4>Ward Committee Open Town Hall Meeting</h4>
+                            <p>Residents are invited to discuss the upcoming local park development budget and project
+                                timelines.</p>
+                            <div class="notice-meta">
+                                <span><i data-lucide="calendar"></i> Sep 10, 2026</span>
+                                <a href="https://mygov.in" target="_blank" class="notice-link">View Guidelines
+                                    &rarr;</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="notice-card-item" data-type="scheme">
+                        <div class="notice-badge scheme-type">SCHEME</div>
+                        <div class="notice-info">
+                            <h4>Swachh Bharat Mission Urban 2.0 - Waste Segregation Grant</h4>
+                            <p>Subsidies and infrastructure frameworks for residential societies implementing wet/dry
+                                waste composting units.</p>
+                            <div class="notice-meta">
+                                <span><i data-lucide="calendar"></i> Open Submissions</span>
+                                <a href="https://swachhbharaturban.gov.in" target="_blank" class="notice-link">Access
+                                    Portal &rarr;</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-foot">
+                <button type="button" class="btn-cancel" id="dismiss-notices-btn">Close Viewer</button>
+            </div>
+        </div>
+    </div>
+    <!-- Large Municipal Analytics Modal -->
+    <div class="modal-backdrop" id="analytics-modal">
+        <div class="modal-box analytics-modal-box">
+            <div class="modal-head">
+                <div>
+                    <h3>My Personal Civic Analytics</h3>
+                    <p>Real-time performance metrics and breakdown of the problems you have reported.</p>
+                </div>
+                <button type="button" class="close-modal-btn" id="close-analytics-btn">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+
+            <div class="modal-content-form">
+                <div class="stats-row modal-stats-row-4">
+                    <div class="metric-card">
+                        <span class="metric-title">Total Problems Reported</span>
+                        <div class="metric-number" id="stat-total">0</div>
+                        <p class="metric-desc">Lifetime submissions</p>
+                    </div>
+
+                    <div class="metric-card">
+                        <span class="metric-title">Problems Solved</span>
+                        <div class="metric-number" id="stat-solved">0</div>
+                        <p class="metric-desc">Marked as resolved</p>
+                    </div>
+
+                    <div class="metric-card">
+                        <span class="metric-title">Under Review</span>
+                        <div class="metric-number" id="stat-review">0</div>
+                        <p class="metric-desc">In authority pipeline</p>
+                    </div>
+
+                    <div class="metric-card">
+                        <span class="metric-title">Resolution Rate</span>
+                        <div class="metric-number" id="stat-rate">0%</div>
+                        <p class="metric-desc">Success percentage</p>
+                    </div>
+                </div>
+
+                <div class="split-section modal-split-section">
+
+                    <div class="box-card">
+                        <div class="box-header">
+                            <h3>Status of All Problems</h3>
+                        </div>
+                        <div class="table-scroll">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>PROBLEM TITLE</th>
+                                        <th>CATEGORY</th>
+                                        <th>STATUS</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="analytics-status-tbody">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="box-card">
+                        <div class="box-header">
+                            <h3>Categories Breakdown Chart</h3>
+                        </div>
+                        <div class="analytics-content-pad" id="category-chart-container">
+                        </div>
+                    </div>
+
+                    </section>
+                </div>
+
+                <div class="modal-foot">
+                    <button type="button" class="btn-cancel" id="dismiss-analytics-btn">Close Analytics</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PROBLEM DETAILS MODAL (STATUS TRACKING & TIMELINE) -->
+    <div class="modal-backdrop" id="problem-details-modal">
+        <div class="modal-box" style="max-width: 680px;">
+            <div class="modal-head">
+                <div>
+                    <div style="display:flex; align-items:center; gap:8px;">
+                        <h3 id="detail-title">Streetlight outage in Ward 12</h3>
+                        <span class="status-pill status-submitted" id="detail-status-pill">SUBMITTED</span>
+                    </div>
+                    <p style="margin-top:2px;">Problem ID: <strong id="detail-id" style="color:var(--color-primary);">CB-2026-00124</strong> &bull; Reported on <span id="detail-date">04/09/2026</span></p>
+                </div>
+                <button type="button" class="close-modal-btn" id="close-details-btn">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+
+            <div class="modal-content-form">
+                <!-- METADATA GRID -->
+                <div class="details-grid">
+                    <div class="details-card">
+                        <span class="d-label">Category / Subcategory</span>
+                        <strong class="d-value" id="detail-category">Public Infrastructure &bull; Street Lighting</strong>
+                    </div>
+                    <div class="details-card">
+                        <span class="d-label">Location / Ward</span>
+                        <strong class="d-value" id="detail-location">Ward 12, Civil Lines (Near Gate 3)</strong>
+                    </div>
+                    <div class="details-card">
+                        <span class="d-label">Severity & Urgency</span>
+                        <strong class="d-value" id="detail-severity">Severity 6/10 &bull; MEDIUM Urgency</strong>
+                    </div>
+                    <div class="details-card">
+                        <span class="d-label">Estimated Affected Population</span>
+                        <strong class="d-value" id="detail-affected">350 Citizens</strong>
+                    </div>
+                </div>
+
+                <!-- DESCRIPTION & AI INSIGHT -->
+                <div class="details-card" style="margin-bottom:12px;">
+                    <span class="d-label">Problem Description</span>
+                    <p id="detail-desc" style="font-size:12px; color:#374151; margin-top:4px;">Multiple streetlights dark for 48 hours.</p>
+                </div>
+
+                <div class="ai-summary-box" style="margin-bottom:12px; background:#F0FDF4; border-color:#BBF7D0;">
+                    <span style="font-size:11px; font-weight:700; color:#15803D;"><i data-lucide="sparkles" style="width:12px; height:12px; display:inline;"></i> CivicBridge AI Assessment</span>
+                    <p id="detail-ai-summary" style="margin-top:4px; font-size:12px; color:#166534;">Lighting failure in high-footfall residential corridor.</p>
+                </div>
+
+                <!-- 6-STAGE STATUS TIMELINE -->
+                <div class="timeline-container">
+                    <div class="timeline-title">Official Resolution Progress Timeline</div>
+                    <div class="timeline-steps" id="detail-timeline-steps">
+                        <!-- Dynamically populated stages -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-foot">
+                <button type="button" class="btn-cancel" id="dismiss-details-btn">Close Details</button>
+                <button type="button" class="btn-primary" id="track-on-map-btn"><i data-lucide="map-pin"></i> <span>Center On Map</span></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CITIZEN NOTIFICATIONS MODAL -->
+    <div class="modal-backdrop" id="citizen-notif-modal">
+        <div class="modal-box" style="max-width: 580px;">
+            <div class="modal-head">
+                <div>
+                    <h3>Citizen Notifications</h3>
+                    <p>Live alerts on status changes, municipal actions, and university assignments.</p>
+                </div>
+                <button type="button" class="close-modal-btn" id="close-notif-modal-btn">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+
+            <div class="modal-content-form">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                    <span style="font-size:12px; color:#6B7280;" id="notif-unread-count-text">2 unread notifications</span>
+                    <button type="button" id="mark-all-read-btn" style="background:none; border:none; color:var(--color-primary); font-size:12px; font-weight:600; cursor:pointer; text-decoration:underline;">Mark all as read</button>
+                </div>
+
+                <div class="notif-list" id="citizen-notif-list">
+                    <!-- Populated dynamically -->
+                </div>
+            </div>
+
+            <div class="modal-foot">
+                <button type="button" class="btn-cancel" id="dismiss-notif-btn">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <!-- Centralized Mock Data & State Management -->
+    <script src="../mockData.js"></script>
+    <!-- Citizen Dashboard Logic -->
+    <script src="citizen-dashboard.js"></script>
+</body>
+
+</html>

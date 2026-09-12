@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>JanSetu - Choose Account Type</title>
+
+    <link rel="stylesheet" href="role.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar">
+
+        <div class="brand">
+
+            <a href="index.html">
+                JanSetu
+            </a>
+
+            <span>
+                Government Civic Portal
+            </span>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="role-container">
+
+
+        <div class="role-card">
+
+
+            <!-- HEADING -->
+
+            <div class="role-heading">
+
+                <div class="success-icon">
+                    ✓
+                </div>
+
+                <h1>
+                    Account Created!
+                </h1>
+
+                <p>
+                    Before we continue, tell us what best describes you.
+                </p>
+
+            </div>
+
+
+
+            <!-- QUESTION -->
+
+            <div class="question">
+
+                <h2>
+                    What are you?
+                </h2>
+
+                <p>
+                    Choose your account type to personalize your JanSetu experience.
+                </p>
+
+            </div>
+
+
+
+            <!-- OPTIONS -->
+
+            <div class="role-grid">
+
+
+                <!-- CITIZEN -->
+
+                <button class="role-option" onclick="selectRole('citizen')">
+
+                    <div class="role-icon">
+                        👤
+                    </div>
+
+                    <div class="role-content">
+
+                        <h3>
+                            Citizen
+                        </h3>
+
+                        <p>
+                            Report civic issues, track complaints and participate in your community.
+                        </p>
+
+                    </div>
+
+                    <span class="arrow">
+                        →
+                    </span>
+
+                </button>
+
+
+
+                <!-- UNIVERSITY -->
+
+                <button class="role-option" onclick="selectRole('university')">
+
+                    <div class="role-icon">
+                        🎓
+                    </div>
+
+                    <div class="role-content">
+
+                        <h3>
+                            University
+                        </h3>
+
+                        <p>
+                            Collaborate on research, projects and innovative civic solutions.
+                        </p>
+
+                    </div>
+
+                    <span class="arrow">
+                        →
+                    </span>
+
+                </button>
+
+
+
+                <!-- GOVERNMENT -->
+
+                <button class="role-option" onclick="selectRole('government')">
+
+                    <div class="role-icon">
+                        🏛
+                    </div>
+
+                    <div class="role-content">
+
+                        <h3>
+                            Government
+                        </h3>
+
+                        <p>
+                            Manage civic services, monitor issues and coordinate departments.
+                        </p>
+
+                    </div>
+
+                    <span class="arrow">
+                        →
+                    </span>
+
+                </button>
+
+
+
+                <!-- INDUSTRY -->
+
+                <button class="role-option" onclick="selectRole('industry')">
+
+                    <div class="role-icon">
+                        💼
+                    </div>
+
+                    <div class="role-content">
+
+                        <h3>
+                            Industry
+                        </h3>
+
+                        <p>
+                            Partner with communities and government to build better solutions.
+                        </p>
+
+                    </div>
+
+                    <span class="arrow">
+                        →
+                    </span>
+
+                </button>
+
+
+            </div>
+
+
+            <p class="bottom-text">
+                You can change your account type later from your profile settings.
+            </p>
+
+
+        </div>
+
+    </main>
+
+
+
+    <script src="api.js"></script>
+    <script src="mockData.js"></script>
+    <script src="role.js"></script>
+
+
+</body>
+
+</html>

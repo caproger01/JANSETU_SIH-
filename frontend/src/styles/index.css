@@ -1,0 +1,17 @@
+/* Global React app overrides — ensures CSS imports from individual pages work cleanly */
+
+/* Prevents body element tags in JSX from inheriting conflicting React defaults */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+}

@@ -1,0 +1,28 @@
+{
+  "name": "jansetu",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/server.js",
+  "scripts": {
+    "test": "node tests/full_e2e_test.js",
+    "test:auth": "node tests/auth_e2e_test.js",
+    "migrate": "node src/db/migrate.js",
+    "seed": "node src/db/seed.js",
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "joi": "^18.2.8",
+    "jsonwebtoken": "^9.0.3",
+    "multer": "^2.3.0",
+    "pg": "^8.23.0"
+  }
+}

@@ -1,0 +1,139 @@
+/* government-dashboard.css */
+
+/* Header/Nav Alignment (Inherited from citizen-dashboard.css, minor tweaks) */
+.header-profile {
+    display: flex;
+    align-items: center;
+}
+
+.govt-badge-text {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-text-sub);
+    margin-right: 10px;
+}
+
+/* Live Data Indicators */
+.live-indicator {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--color-primary);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.pulse-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--color-primary);
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 0 0 rgba(7, 88, 68, 0.4);
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(7, 88, 68, 0.4);
+    }
+
+    70% {
+        box-shadow: 0 0 0 6px rgba(7, 88, 68, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(7, 88, 68, 0);
+    }
+}
+
+/* Enforce 5-column grid for stats row to match design */
+.stats-row {
+    display: grid !important;
+    grid-template-columns: repeat(5, 1fr) !important;
+    gap: 14px;
+    margin-bottom: 20px;
+}
+
+/* Split Section: Map (left 60%), Category Breakdown (right 40%) */
+.split-section {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+/* Map Container overrides */
+.map-container {
+    height: 380px;
+    width: 100%;
+    position: relative;
+    background: #E8ECEB;
+    border-radius: 0 0 6px 6px;
+}
+
+#cmd-map {
+    width: 100%;
+    height: 100%;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1200px) {
+    .stats-row {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+
+    .split-section {
+        grid-template-columns: 1fr;
+        /* Stack map and chart */
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-body {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: var(--border-line);
+        flex-direction: row;
+        overflow-x: auto;
+    }
+}
+
+/* --- UPDATED: Professional Category Progress Bar Styles --- */
+.progress-item {
+    margin-bottom: 14px;
+    /* Space between categories */
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: var(--color-text-main);
+    margin-bottom: 5px;
+    /* Space between text and bar */
+    font-weight: 500;
+}
+
+.progress-bar-bg {
+    width: 100%;
+    height: 8px;
+    /* Thin, professional bar */
+    background-color: #E0E0E0;
+    /* Light gray track */
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: var(--color-primary);
+    /* Use your theme's green */
+    border-radius: 4px;
+    transition: width 0.4s ease-in-out;
+    /* Smooth animation */
+}

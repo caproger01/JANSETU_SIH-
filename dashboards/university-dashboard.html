@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JanSetu - University Dashboard</title>
+    <!-- Separate CSS -->
+    <link rel="stylesheet" href="university-dashboard.css">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="brand">
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <span style="font-size: 26px;">🇮🇳</span>
+                <div>
+                    <div class="brand-name">JanSetu</div>
+                    <div class="brand-subtitle">University Research &amp; Innovation Hub</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="header-actions">
+            <button class="notif-btn" id="open-univ-notif-btn" aria-label="Notifications" title="University Notifications">
+                <span>🔔</span>
+                <span class="notif-badge" id="univ-notif-badge">1</span>
+            </button>
+            <div style="font-size: 13px; font-weight: 600; color: #075844;">
+                <span>IIT Roorkee / Meerut Campus</span>
+            </div>
+            <button type="button" class="logout-btn-header" id="univ-logout-btn" title="Sign Out">
+                Logout
+            </button>
+        </div>
+    </header>
+
+    <!-- TOP NAVIGATION -->
+    <nav class="top-nav">
+        <ul style="list-style: none; display: flex; gap: 24px; margin: 0; padding: 0;">
+            <li><a href="../index.html" style="color: white; text-decoration: none; font-size: 14px;">Home</a></li>
+            <li><a href="citizen-dashboard.html" style="color: white; text-decoration: none; font-size: 14px;">Citizens</a></li>
+            <li><a href="university-dashboard.html" style="color: white; text-decoration: none; font-size: 14px; font-weight: 700; border-bottom: 3px solid #FF9933; padding-bottom: 4px;">Universities</a></li>
+            <li><a href="industry-dashboard.html" style="color: white; text-decoration: none; font-size: 14px;">Industry</a></li>
+            <li><a href="government-dashboard.html" style="color: white; text-decoration: none; font-size: 14px;">Government Command Center</a></li>
+        </ul>
+    </nav>
+
+    <!-- BREADCRUMBS -->
+    <div class="breadcrumb-bar">
+        <div class="breadcrumbs">
+            <a href="../index.html">Home</a>
+            <span class="separator">&gt;</span>
+            <a href="university-dashboard.html">Universities</a>
+            <span class="separator">&gt;</span>
+            <span>AI Recommended Challenges &amp; Projects</span>
+        </div>
+        <div>
+            <a href="../role.html" class="back-link">&larr; Switch Role</a>
+        </div>
+    </div>
+
+    <!-- MAIN LAYOUT -->
+    <div class="layout">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <h2>JanSetu</h2>
+                <span>UNIVERSITY PANEL</span>
+            </div>
+
+            <ul class="sidebar-menu">
+                <li>
+                    <a href="#challenges" class="active">
+                        <span class="menu-icon">⚑</span>
+                        AI Challenges
+                    </a>
+                </li>
+                <li>
+                    <a href="#project-spotlight">
+                        <span class="menu-icon">▦</span>
+                        Active Projects
+                    </a>
+                </li>
+                <li>
+                    <a href="#all-projects">
+                        <span class="menu-icon">▣</span>
+                        Project Repository
+                    </a>
+                </li>
+                <li>
+                    <a href="industry-dashboard.html">
+                        <span class="menu-icon">♧</span>
+                        Industry Collaboration
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="content">
+
+            <div class="page-heading">
+                <h1>Academic Innovation &amp; Civic Challenges</h1>
+                <p>Match multidisciplinary student teams with verified municipal problems and industry CSR support.</p>
+            </div>
+
+            <!-- STATISTICS -->
+            <section class="stats">
+                <div class="stat-card">
+                    <span class="stat-label">ACTIVE CHALLENGES</span>
+                    <span class="stat-number">12</span>
+                    <span class="stat-description">Open for participation</span>
+                </div>
+
+                <div class="stat-card">
+                    <span class="stat-label">ONGOING PROJECTS</span>
+                    <span class="stat-number">8</span>
+                    <span class="stat-description">Across departments</span>
+                </div>
+
+                <div class="stat-card">
+                    <span class="stat-label">STUDENT PARTICIPANTS</span>
+                    <span class="stat-number">450+</span>
+                    <span class="stat-description">Engaged across campus</span>
+                </div>
+            </section>
+
+            <!-- SECTION 1: AI RECOMMENDED CHALLENGES (TOP PRIORITY) -->
+            <section class="challenge-section-container" id="challenges">
+                <div class="section-header" style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 12px;">
+                    <div>
+                        <h2 style="font-size: 20px; color: #075844; font-weight: 700;">AI Recommended Challenges</h2>
+                        <p style="font-size: 13px; color: #666;">High-affinity civic problems prioritized for university research and engineering intervention.</p>
+                    </div>
+                    <span style="font-size: 12px; font-weight: 700; color: #047857; background: #ECFDF5; padding: 4px 10px; border-radius: 12px; border: 1px solid #A7F3D0;">
+                        ★ Matched with Department Capabilities
+                    </span>
+                </div>
+
+                <div class="challenge-grid" id="ai-challenges-grid">
+                    <!-- Populated dynamically by university-dashboard.js -->
+                </div>
+            </section>
+
+            <!-- SECTION 2: PROJECT DASHBOARD SPOTLIGHT & MILESTONES -->
+            <section class="project-spotlight-card" id="project-spotlight">
+                <div class="spotlight-header">
+                    <div>
+                        <span style="font-size: 11px; font-weight: 700; color: #047857; text-transform: uppercase; letter-spacing: 0.5px;">Active Flagship Project</span>
+                        <h2 style="font-size: 22px; font-weight: 700; color: #17252d; margin-top: 4px;">Smart Rural Drainage System</h2>
+                        <p style="font-size: 13px; color: #555; margin-top: 2px;">
+                            Department: <strong>Civil Engineering &amp; GIS Lab</strong> &bull; Mentor: <strong>Dr. S. K. Sharma</strong> &bull; Challenge: <strong>CHL-001 (Meerut Flooding)</strong>
+                        </p>
+                    </div>
+                    <div style="text-align: right;">
+                        <div style="font-size: 24px; font-weight: 800; color: #075844;">72%</div>
+                        <span style="font-size: 11px; font-weight: 600; color: #666;">Overall Stage Progress</span>
+                    </div>
+                </div>
+
+                <!-- Progress Track -->
+                <div class="progress-track" style="height: 10px; border-radius: 5px; background: #E5E7EB; overflow: hidden; margin-bottom: 16px;">
+                    <div class="progress-fill" style="width: 72%; height: 100%; background: #075844;"></div>
+                </div>
+
+                <!-- Interactive Milestones Bar -->
+                <div style="font-size: 12px; font-weight: 700; color: #444; margin-top: 20px;">Project Development Milestones (Click any stage to inspect deliverable):</div>
+                <div class="milestones-bar">
+                    <div class="milestone-node-wrap done" data-milestone="research">
+                        <div class="milestone-node">✓</div>
+                        <div class="milestone-label">Research</div>
+                        <span class="milestone-sub">10 Jul &bull; Verified</span>
+                    </div>
+
+                    <div class="milestone-node-wrap done" data-milestone="validation">
+                        <div class="milestone-node">✓</div>
+                        <div class="milestone-label">Validation</div>
+                        <span class="milestone-sub">25 Jul &bull; Approved</span>
+                    </div>
+
+                    <div class="milestone-node-wrap done" data-milestone="prototype">
+                        <div class="milestone-node">✓</div>
+                        <div class="milestone-label">Prototype</div>
+                        <span class="milestone-sub">15 Aug &bull; Scaled</span>
+                    </div>
+
+                    <div class="milestone-node-wrap active" data-milestone="testing">
+                        <div class="milestone-node">4</div>
+                        <div class="milestone-label">Testing</div>
+                        <span class="milestone-sub" style="color:#D97706; font-weight:700;">In Progress</span>
+                    </div>
+
+                    <div class="milestone-node-wrap" data-milestone="pilot">
+                        <div class="milestone-node">5</div>
+                        <div class="milestone-label">Pilot</div>
+                        <span class="milestone-sub">10 Oct</span>
+                    </div>
+
+                    <div class="milestone-node-wrap" data-milestone="deployment">
+                        <div class="milestone-node">6</div>
+                        <div class="milestone-label">Deployment</div>
+                        <span class="milestone-sub">15 Nov</span>
+                    </div>
+                </div>
+
+                <!-- Registered Student Team Roster -->
+                <div style="margin-top: 24px; padding-top: 16px; border-top: 1px dashed #D1D5DB; display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <strong style="font-size: 13px; color: #17252d;">Active Team Members:</strong>
+                        <span style="font-size: 12px; color: #555; margin-left: 8px;">
+                            Rahul Sharma (Civil Lead &bull; 96%), Priya Verma (GIS &bull; 92%), Aman Deep (IoT &bull; 88%)
+                        </span>
+                    </div>
+                    <button type="button" class="btn-cancel" onclick="document.getElementById('team-creation-modal').classList.add('open')" style="padding: 5px 12px; font-size: 12px;">
+                        Manage Team Roster
+                    </button>
+                </div>
+            </section>
+
+            <!-- SECTION 3: OTHER CAMPUS PROJECTS REPOSITORY -->
+            <section class="projects-container" id="all-projects">
+                <div class="section-header">
+                    <h2>Current Projects Repository</h2>
+                    <a href="#" class="view-all">View all projects &rarr;</a>
+                </div>
+
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Project</th>
+                                <th>Status</th>
+                                <th>Department / Category</th>
+                                <th>Teams</th>
+                                <th>Participants</th>
+                                <th>Progress</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <!-- PROJECT 1 -->
+                            <tr>
+                                <td>
+                                    <div class="project-name">Smart Campus Initiative</div>
+                                    <div class="project-description">Leveraging IoT and automation to enhance campus infrastructure, energy efficiency and safety.</div>
+                                </td>
+                                <td><span class="status ongoing">ONGOING</span></td>
+                                <td>Smart Infrastructure</td>
+                                <td><span class="metric-number">18</span><span class="metric-label">Teams</span></td>
+                                <td><span class="metric-number">120+</span><span class="metric-label">Participants</span></td>
+                                <td>
+                                    <div class="progress-number">65%</div>
+                                    <div class="progress-track"><div class="progress-fill" style="width: 65%;"></div></div>
+                                </td>
+                                <td><a href="#project-spotlight" class="view-project">View <span class="arrow">&rsaquo;</span></a></td>
+                            </tr>
+
+                            <!-- PROJECT 2 -->
+                            <tr>
+                                <td>
+                                    <div class="project-name">Rural Digital Education</div>
+                                    <div class="project-description">Building digital learning solutions to bridge education gaps in rural communities.</div>
+                                </td>
+                                <td><span class="status progress">IN PROGRESS</span></td>
+                                <td>Education Technology</td>
+                                <td><span class="metric-number">22</span><span class="metric-label">Teams</span></td>
+                                <td><span class="metric-number">160+</span><span class="metric-label">Participants</span></td>
+                                <td>
+                                    <div class="progress-number">40%</div>
+                                    <div class="progress-track"><div class="progress-fill progress-blue" style="width: 40%;"></div></div>
+                                </td>
+                                <td><a href="#project-spotlight" class="view-project">View <span class="arrow">&rsaquo;</span></a></td>
+                            </tr>
+
+                            <!-- PROJECT 3 -->
+                            <tr>
+                                <td>
+                                    <div class="project-name">Water Management System</div>
+                                    <div class="project-description">Developing smart water monitoring and conservation systems for sustainable campuses.</div>
+                                </td>
+                                <td><span class="status planning">PLANNING</span></td>
+                                <td>Environment &amp; Sustainability</td>
+                                <td><span class="metric-number">15</span><span class="metric-label">Teams</span></td>
+                                <td><span class="metric-number">90+</span><span class="metric-label">Participants</span></td>
+                                <td>
+                                    <div class="progress-number">25%</div>
+                                    <div class="progress-track"><div class="progress-fill progress-orange" style="width: 25%;"></div></div>
+                                </td>
+                                <td><a href="#project-spotlight" class="view-project">View <span class="arrow">&rsaquo;</span></a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- FOOTER -->
+            <footer class="footer">
+                <span>&copy; 2026 JanSetu Government Portal. All rights reserved.</span>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Use</a>
+                    <a href="#">Academic Help</a>
+                </div>
+            </footer>
+
+        </main>
+
+    </div>
+
+    <!-- CHALLENGE DETAILS MODAL -->
+    <div class="modal-backdrop" id="challenge-details-modal">
+        <div class="modal-box">
+            <div class="modal-head">
+                <div>
+                    <h3 id="chl-modal-title">Rural Drainage &amp; Flooding Mitigation</h3>
+                    <p>Challenge ID: <strong id="chl-modal-id">CHL-001</strong> &bull; Location: <span id="chl-modal-location">Meerut</span></p>
+                </div>
+                <button type="button" class="close-modal-btn" id="close-chl-modal-btn">&times;</button>
+            </div>
+
+            <div class="modal-body-pad">
+                <div style="background: #F9FAFB; padding: 12px; border-radius: 4px; border: 1px solid #E5E7EB; margin-bottom: 14px;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+                        <span style="font-size: 11px; color: #666;">Match Priority</span>
+                        <strong style="color: #DC2626;" id="chl-modal-priority">CRITICAL (96% AI Fit)</strong>
+                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                        <span style="font-size: 11px; color: #666;">Estimated Community Impact</span>
+                        <strong style="color: #075844;" id="chl-modal-impact">2,500 Villagers</strong>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 14px;">
+                    <strong style="font-size: 12px; color: #17252d;">Required Interdisciplinary Expertise:</strong>
+                    <div class="skills-tags-wrap" id="chl-modal-skills" style="margin-top: 6px;">
+                        <!-- Injected -->
+                    </div>
+                </div>
+
+                <div>
+                    <strong style="font-size: 12px; color: #17252d;">Detailed Challenge Scope &amp; AI Formulation:</strong>
+                    <p id="chl-modal-desc" style="font-size: 13px; color: #444; line-height: 1.5; margin-top: 6px;">
+                        Description...
+                    </p>
+                </div>
+            </div>
+
+            <div class="modal-foot">
+                <button type="button" class="btn-cancel" id="dismiss-chl-btn">Close</button>
+                <button type="button" class="btn-primary-action" id="accept-challenge-trigger-btn">Accept Challenge &amp; Build Team</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CHALLENGE ACCEPTANCE CONFIRMATION MODAL -->
+    <div class="modal-backdrop" id="confirm-accept-modal">
+        <div class="modal-box" style="max-width: 480px;">
+            <div class="modal-head">
+                <h3>Accept Community Challenge?</h3>
+                <button type="button" class="close-modal-btn" id="close-confirm-btn">&times;</button>
+            </div>
+
+            <div class="modal-body-pad">
+                <p style="font-size: 13px; line-height: 1.5; color: #333;">
+                    By accepting this challenge, your university registers interest with the <strong>District Municipal Administration</strong> to lead engineering validation and student prototype deployment.
+                </p>
+                <p style="font-size: 12px; color: #047857; margin-top: 10px; font-weight: 600;">
+                    ✓ Eligible for Industry CSR Funding &amp; Lab Equipment Grants.
+                </p>
+            </div>
+
+            <div class="modal-foot">
+                <button type="button" class="btn-cancel" id="cancel-confirm-btn">Cancel</button>
+                <button type="button" class="btn-primary-action" id="confirm-accept-btn">Confirm &amp; Create Project Team</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- TEAM CREATION MODAL -->
+    <div class="modal-backdrop" id="team-creation-modal">
+        <div class="modal-box" style="max-width: 640px;">
+            <div class="modal-head">
+                <div>
+                    <h3>Create Multidisciplinary Project Team</h3>
+                    <p>Select Faculty Mentor &amp; Match Student Researchers</p>
+                </div>
+                <button type="button" class="close-modal-btn" id="close-team-btn">&times;</button>
+            </div>
+
+            <div class="modal-body-pad">
+                <div style="margin-bottom: 14px;">
+                    <label style="font-size: 12px; font-weight: 700; color: #17252d; display: block; margin-bottom: 4px;">Faculty Mentor</label>
+                    <input type="text" id="team-mentor-input" value="Dr. S. K. Sharma (Professor, Hydraulics &amp; Environmental Engg)" style="width: 100%; padding: 8px 10px; border: 1px solid #D1D5DB; border-radius: 4px; font-size: 13px;">
+                </div>
+
+                <div style="margin-bottom: 14px;">
+                    <label style="font-size: 12px; font-weight: 700; color: #17252d; display: block; margin-bottom: 4px;">Required Team Disciplines</label>
+                    <div style="font-size: 12px; color: #555;">Civil Engineering &bull; GIS Spatial Analysis &bull; IoT Sensor Networks</div>
+                </div>
+
+                <div>
+                    <label style="font-size: 12px; font-weight: 700; color: #17252d; display: block; margin-bottom: 6px;">AI Recommended Student Researchers:</label>
+                    <div id="student-candidates-list">
+                        <!-- Populated dynamically -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-foot">
+                <button type="button" class="btn-cancel" id="cancel-team-btn">Cancel</button>
+                <button type="button" class="btn-primary-action" id="submit-team-btn">Create Team &amp; Launch Project</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MILESTONE DELIVERABLE MODAL -->
+    <div class="modal-backdrop" id="milestone-modal">
+        <div class="modal-box" style="max-width: 520px;">
+            <div class="modal-head">
+                <h3 id="m-modal-title">Stage Milestone</h3>
+                <button type="button" class="close-modal-btn" id="close-milestone-btn">&times;</button>
+            </div>
+
+            <div class="modal-body-pad">
+                <div style="background: #F9FAFB; padding: 12px; border: 1px solid #E5E7EB; border-radius: 4px; margin-bottom: 12px;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+                        <span style="font-size: 11px; color: #666;">Status</span>
+                        <strong style="color: #075844;" id="m-modal-status">Completed</strong>
+                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                        <span style="font-size: 11px; color: #666;">Target Completion Date</span>
+                        <strong id="m-modal-date">10 Jul 2026</strong>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 10px;">
+                    <strong style="font-size: 12px; color: #17252d;">Verified Deliverable:</strong>
+                    <p id="m-modal-deliverable" style="font-size: 13px; color: #075844; font-weight: 600; margin-top: 4px;">
+                        Deliverable description...
+                    </p>
+                </div>
+
+                <div>
+                    <strong style="font-size: 12px; color: #17252d;">Scope Summary:</strong>
+                    <p id="m-modal-desc" style="font-size: 12px; color: #555; margin-top: 4px; line-height: 1.4;">
+                        Scope details...
+                    </p>
+                </div>
+            </div>
+
+            <div class="modal-foot">
+                <button type="button" class="btn-cancel" id="dismiss-milestone-btn">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- UNIVERSITY NOTIFICATIONS MODAL -->
+    <div class="modal-backdrop" id="univ-notif-modal">
+        <div class="modal-box" style="max-width: 540px;">
+            <div class="modal-head">
+                <h3>University Notifications</h3>
+                <button type="button" class="close-modal-btn" id="close-univ-notif-btn">&times;</button>
+            </div>
+
+            <div class="modal-body-pad">
+                <div id="univ-notif-list">
+                    <!-- Populated dynamically -->
+                </div>
+            </div>
+
+            <div class="modal-foot">
+                <button type="button" class="btn-cancel" id="dismiss-univ-notif-btn">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Centralized Mock Data & State Management -->
+    <script src="../mockData.js"></script>
+    <!-- University Dashboard Logic -->
+    <script src="university-dashboard.js"></script>
+</body>
+
+</html>

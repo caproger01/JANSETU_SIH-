@@ -1,0 +1,789 @@
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f7f9fa;
+    color: #17252d;
+    min-height: 100vh;
+}
+
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+header {
+    height: 98px;
+
+    background: #004d3d;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 44px;
+
+    color: white;
+}
+
+.brand {
+    display: flex;
+    flex-direction: column;
+}
+
+.brand h1 {
+    color: white;
+
+    font-size: 34px;
+    font-weight: 700;
+
+    line-height: 1;
+}
+
+.brand p {
+    margin-top: 7px;
+
+    font-size: 16px;
+    color: #e4eeee;
+}
+
+
+/* =========================================
+   HEADER BUTTONS
+========================================= */
+
+.header-buttons {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.header-buttons button {
+    min-width: 110px;
+    height: 53px;
+
+    padding: 0 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: transparent;
+
+    border: 1px solid white;
+    border-radius: 5px;
+
+    color: white;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.header-buttons button:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+
+/* =========================================
+   MAIN
+========================================= */
+
+.main {
+    min-height: calc(100vh - 98px);
+
+    display: grid;
+
+    grid-template-columns: 29% 71%;
+}
+
+
+/* =========================================
+   LEFT PANEL
+========================================= */
+
+.left-panel {
+
+    position: relative;
+
+    min-height: 760px;
+
+    background:
+        linear-gradient(rgba(0, 77, 61, 0.88),
+            rgba(0, 77, 61, 0.88)),
+        url("images/government-building.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    color: white;
+}
+
+
+/* DARK OVERLAY */
+
+.left-panel::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(180deg,
+            rgba(0, 77, 61, 0.15),
+            rgba(0, 50, 40, 0.35));
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   LEFT CONTENT
+========================================= */
+
+.left-panel {
+
+    padding: 90px 44px 50px;
+}
+
+
+.left-panel h2 {
+
+    position: relative;
+
+    z-index: 2;
+
+    font-size: 38px;
+
+    line-height: 1.12;
+
+    font-weight: 700;
+
+    margin-bottom: 25px;
+}
+
+
+/* GREEN LINE */
+
+.green-line {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 46px;
+
+    height: 4px;
+
+    background: #24d99b;
+
+    margin-bottom: 25px;
+}
+
+
+/* DESCRIPTION */
+
+.description {
+
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 330px;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+
+    color: #f2f7f5;
+
+    margin-bottom: 45px;
+}
+
+
+/* =========================================
+   FEATURES
+========================================= */
+
+.feature {
+
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    margin-bottom: 24px;
+}
+
+
+/* FEATURE ICON */
+
+.feature-icon {
+
+    width: 48px;
+    height: 48px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: rgba(16, 191, 132, 0.45);
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 22px;
+}
+
+
+/* FEATURE TEXT */
+
+.feature h3 {
+
+    font-size: 16px;
+
+    margin-bottom: 6px;
+
+    font-weight: 700;
+}
+
+.feature p {
+
+    font-size: 13px;
+
+    color: #d9ebe6;
+}
+
+
+/* =========================================
+   RIGHT SIGNUP SECTION
+========================================= */
+
+.right-panel {
+
+    background: #ffffff;
+
+    min-height: 760px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 35px 40px;
+}
+
+
+/* =========================================
+   SIGNUP CARD
+========================================= */
+
+.signup-card {
+
+    width: 675px;
+
+    max-width: 100%;
+
+    background: white;
+
+    border: 1px solid #dce1e4;
+
+    border-radius: 10px;
+
+    padding: 42px 72px 38px;
+
+    box-shadow:
+        0 7px 25px rgba(0, 0, 0, 0.07);
+}
+
+
+/* =========================================
+   SIGNUP HEADING
+========================================= */
+
+.signup-title {
+
+    text-align: center;
+
+    margin-bottom: 28px;
+}
+
+.signup-title h2 {
+
+    font-size: 32px;
+
+    font-weight: 700;
+
+    margin-bottom: 10px;
+
+    color: #17252d;
+}
+
+.signup-title p {
+
+    font-size: 18px;
+
+    color: #64717a;
+}
+
+
+/* =========================================
+   FORM ROW
+========================================= */
+
+.form-row {
+
+    display: flex;
+
+    gap: 20px;
+}
+
+
+/* =========================================
+   FORM GROUP
+========================================= */
+
+.form-group {
+
+    flex: 1;
+
+    margin-bottom: 20px;
+}
+
+.form-group label {
+
+    display: block;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    margin-bottom: 9px;
+}
+
+
+/* =========================================
+   INPUT
+========================================= */
+
+.input-wrapper {
+
+    position: relative;
+
+    width: 100%;
+}
+
+
+.input-icon {
+
+    position: absolute;
+
+    left: 16px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    font-size: 18px;
+
+    color: #77848c;
+
+    z-index: 2;
+}
+
+
+.input-wrapper input {
+
+    height: 53px;
+
+    width: 100%;
+
+    border: 1px solid #cbd3d7;
+
+    border-radius: 4px;
+
+    background: white;
+
+    outline: none;
+
+    font-size: 17px;
+
+    padding: 0 15px 0 48px;
+
+    color: #25343c;
+}
+
+
+.input-wrapper input:focus {
+
+    border-color: #00634e;
+
+    box-shadow:
+        0 0 0 3px rgba(0, 99, 78, 0.08);
+}
+
+
+.input-wrapper input::placeholder {
+
+    color: #3f4850;
+
+    opacity: 0.9;
+}
+
+.input-wrapper input[type="password"],
+.input-wrapper input[type="text"] {
+    padding-right: 48px;
+}
+
+.toggle-password-btn {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #77848c;
+    font-size: 18px;
+    z-index: 3;
+    user-select: none;
+}
+
+.toggle-password-btn:hover {
+    color: #00634e;
+}
+
+
+/* =========================================
+   PASSWORD NOTE
+========================================= */
+
+.password-note {
+
+    color: #64717a;
+
+    font-size: 13px;
+
+    margin-top: 7px;
+}
+
+
+/* =========================================
+   TERMS
+========================================= */
+
+.terms {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    font-size: 14px;
+
+    margin: 2px 0 20px;
+}
+
+
+.terms input {
+
+    width: 18px;
+    height: 18px;
+
+    cursor: pointer;
+}
+
+
+.terms label {
+
+    font-size: 14px;
+
+    font-weight: 400;
+
+    margin: 0;
+}
+
+
+.terms a {
+
+    color: #005b49;
+
+    font-weight: 700;
+
+    text-decoration: none;
+}
+
+
+.terms a:hover {
+
+    text-decoration: underline;
+}
+
+
+/* =========================================
+   CREATE ACCOUNT BUTTON
+========================================= */
+
+.create-btn {
+
+    width: 100%;
+
+    height: 54px;
+
+    background: #005743;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 4px;
+
+    font-size: 17px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.create-btn:hover {
+
+    background: #004636;
+}
+
+
+/* =========================================
+   DIVIDER
+========================================= */
+
+.or-divider {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+    margin: 25px 0;
+
+    color: #65727b;
+
+    font-size: 15px;
+}
+
+
+.or-divider::before,
+.or-divider::after {
+
+    content: "";
+
+    height: 1px;
+
+    background: #dce1e4;
+
+    flex: 1;
+}
+
+
+/* =========================================
+   GOOGLE BUTTON
+========================================= */
+
+.google-btn {
+
+    width: 100%;
+
+    height: 54px;
+
+    background: white;
+
+    border: 1px solid #cbd3d7;
+
+    border-radius: 4px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    color: #202a31;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.google-btn:hover {
+
+    background: #f7f9f8;
+
+    border-color: #aeb8bd;
+}
+
+
+.google-icon {
+
+    font-size: 23px;
+
+    font-weight: 800;
+
+    font-family: Arial, sans-serif;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 1000px) {
+
+    .main {
+
+        grid-template-columns: 1fr;
+    }
+
+    .left-panel {
+
+        min-height: auto;
+    }
+
+    .right-panel {
+
+        min-height: auto;
+
+        padding: 60px 30px;
+    }
+
+    .signup-card {
+
+        width: 650px;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    header {
+
+        height: 75px;
+
+        padding: 0 20px;
+    }
+
+    .brand h1 {
+
+        font-size: 27px;
+    }
+
+    .brand p {
+
+        font-size: 12px;
+    }
+
+    .header-buttons button {
+
+        min-width: auto;
+
+        height: 42px;
+
+        padding: 0 14px;
+
+        font-size: 13px;
+    }
+
+
+    .main {
+
+        display: block;
+    }
+
+
+    .left-panel {
+
+        min-height: auto;
+
+        padding: 55px 28px;
+    }
+
+
+    .left-panel h2 {
+
+        font-size: 34px;
+    }
+
+
+    .right-panel {
+
+        padding: 35px 15px;
+    }
+
+
+    .signup-card {
+
+        padding: 40px 25px;
+
+        width: 100%;
+    }
+
+
+    .signup-title h2 {
+
+        font-size: 28px;
+    }
+
+
+    .signup-title p {
+
+        font-size: 16px;
+    }
+
+
+    .form-row {
+
+        flex-direction: column;
+
+        gap: 0;
+    }
+}

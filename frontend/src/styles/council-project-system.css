@@ -1,0 +1,481 @@
+/* JanSetu Project Allotment, Council Assignment & Implementation System CSS */
+
+/* Modal Overlays & Containers */
+.modal-backdrop-custom {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(17, 24, 39, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 1050;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.modal-dialog-custom {
+  background: #ffffff;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 680px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  border: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  animation: modalFadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-dialog-large {
+  max-width: 860px;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.97) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.modal-header-custom {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fcfdfd;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.modal-header-custom h3 {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #111827;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.modal-close-btn {
+  background: transparent;
+  border: none;
+  color: #6b7280;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+}
+
+.modal-close-btn:hover {
+  background: #f3f4f6;
+  color: #111827;
+}
+
+.modal-body-custom {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.modal-footer-custom {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  background: #f9fafb;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+/* AI Recommendation Explainable Card */
+.ai-recommendation-box {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  position: relative;
+}
+
+.ai-rec-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.ai-rec-title {
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  color: #065f46;
+}
+
+.ai-rec-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+  background: #075844;
+  color: #ffffff;
+}
+
+.ai-rec-content {
+  font-size: 0.875rem;
+  color: #1f2937;
+  line-height: 1.5;
+}
+
+.ai-rec-council {
+  font-weight: 700;
+  color: #064e3b;
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.ai-rec-dept {
+  font-size: 0.8125rem;
+  color: #047857;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.ai-rec-reasons {
+  margin: 0.5rem 0 0 0;
+  padding-left: 1.25rem;
+  font-size: 0.8125rem;
+  color: #374151;
+}
+
+.ai-rec-reasons li {
+  margin-bottom: 0.25rem;
+}
+
+.btn-apply-rec {
+  margin-top: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  background: #ffffff;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+  padding: 0.375rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-apply-rec:hover {
+  background: #ecfdf5;
+  border-color: #6ee7b7;
+}
+
+/* Form Styles */
+.form-group-custom {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.form-label-custom {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.form-select-custom,
+.form-input-custom,
+.form-textarea-custom {
+  width: 100%;
+  padding: 0.625rem 0.875rem;
+  font-size: 0.875rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background-color: #ffffff;
+  color: #111827;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  box-sizing: border-box;
+}
+
+.form-select-custom:focus,
+.form-input-custom:focus,
+.form-textarea-custom:focus {
+  outline: none;
+  border-color: #075844;
+  box-shadow: 0 0 0 3px rgba(7, 88, 68, 0.15);
+}
+
+.form-checkbox-custom {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.625rem;
+  font-size: 0.8125rem;
+  color: #4b5563;
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+.form-checkbox-custom input[type="checkbox"] {
+  margin-top: 0.125rem;
+  accent-color: #075844;
+  width: 16px;
+  height: 16px;
+}
+
+/* Buttons */
+.btn-gov-primary {
+  background: #075844;
+  color: #ffffff;
+  border: none;
+  padding: 0.625rem 1.25rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background 0.15s ease;
+}
+
+.btn-gov-primary:hover:not(:disabled) {
+  background: #064737;
+}
+
+.btn-gov-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-gov-secondary {
+  background: #ffffff;
+  color: #374151;
+  border: 1px solid #d1d5db;
+  padding: 0.625rem 1.25rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-gov-secondary:hover {
+  background: #f3f4f6;
+  border-color: #9ca3af;
+}
+
+/* Partner Matching Recommendation Cards */
+.partner-rec-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.partner-rec-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 0.875rem 1rem;
+  background: #ffffff;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.partner-rec-card:hover {
+  border-color: #9ca3af;
+  background: #fafafa;
+}
+
+.partner-rec-card.selected {
+  border-color: #075844;
+  background: #f0fdf4;
+  box-shadow: 0 0 0 1px #075844;
+}
+
+.partner-rec-info h4 {
+  margin: 0 0 0.25rem 0;
+  font-size: 0.9375rem;
+  color: #111827;
+  font-weight: 700;
+}
+
+.partner-rec-info p {
+  margin: 0;
+  font-size: 0.8125rem;
+  color: #4b5563;
+}
+
+.partner-rec-score {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.25rem;
+}
+
+.partner-score-badge {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  background: #e6f4ea;
+  color: #065f46;
+}
+
+/* Timeline Component */
+.timeline-container {
+  padding: 1.25rem;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+}
+
+.timeline-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid #f3f4f6;
+  padding-bottom: 0.75rem;
+}
+
+.timeline-header h4 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.timeline-steps-horizontal {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  position: relative;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
+
+.timeline-step-item {
+  flex: 1;
+  min-width: 110px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+.timeline-step-node {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  z-index: 2;
+  transition: all 0.2s ease;
+}
+
+.timeline-step-node.completed {
+  background: #075844;
+  color: #ffffff;
+}
+
+.timeline-step-node.active {
+  background: #2563eb;
+  color: #ffffff;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.2);
+}
+
+.timeline-step-node.pending {
+  background: #e5e7eb;
+  color: #6b7280;
+}
+
+.timeline-step-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #111827;
+  line-height: 1.25;
+  margin-bottom: 0.25rem;
+}
+
+.timeline-step-desc {
+  font-size: 0.6875rem;
+  color: #6b7280;
+  line-height: 1.2;
+}
+
+/* Progress bar inside timeline */
+.timeline-progress-bar-wrap {
+  margin-top: 1.25rem;
+  background: #f3f4f6;
+  border-radius: 9999px;
+  height: 8px;
+  overflow: hidden;
+}
+
+.timeline-progress-bar-fill {
+  height: 100%;
+  background: #075844;
+  border-radius: 9999px;
+  transition: width 0.3s ease;
+}
+
+/* Council & Department Pill Badges */
+.badge-council {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.625rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: #eff6ff;
+  color: #1e40af;
+  border: 1px solid #bfdbfe;
+}
+
+.badge-council-unassigned {
+  background: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+.badge-project-status {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.badge-status-approved { background: #dbeafe; color: #1e40af; }
+.badge-status-allotted { background: #ede9fe; color: #5b21b6; }
+.badge-status-inprogress { background: #fef3c7; color: #92400e; }
+.badge-status-submitted { background: #e0e7ff; color: #3730a3; }
+.badge-status-verified { background: #ccfbf1; color: #115e59; }
+.badge-status-completed { background: #d1fae5; color: #065f46; }

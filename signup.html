@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JanSetu - Create Account</title>
+
+    <link rel="stylesheet" href="signup.css">
+</head>
+
+<body>
+
+    <header>
+
+        <div class="brand">
+            <h1>JanSetu</h1>
+            <p>Government Civic Portal</p>
+        </div>
+
+        <div class="header-buttons">
+            <button><a href="login.html">
+                    <span style="color:white;font-family:arial">login</span>
+                </a></button>
+        </div>
+
+    </header>
+
+
+    <main class="main">
+
+        <!-- LEFT PANEL -->
+
+        <section class="left-panel">
+
+            <h2>
+                Welcome<br>
+                to JanSetu
+            </h2>
+
+            <div class="green-line"></div>
+
+            <p class="description">
+                Connecting Citizens, Universities,
+                Industries and Government to build a better
+                tomorrow.
+            </p>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">👥</div>
+
+                <div>
+                    <h3>Citizen Participation</h3>
+                    <p>Report issues and track progress</p>
+                </div>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">🎓</div>
+
+                <div>
+                    <h3>Academic Collaboration</h3>
+                    <p>Research and innovative solutions</p>
+                </div>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">💼</div>
+
+                <div>
+                    <h3>Industry Partnerships</h3>
+                    <p>Share expertise and resources</p>
+                </div>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">🏛️</div>
+
+                <div>
+                    <h3>Government Integration</h3>
+                    <p>Efficient civic management</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- RIGHT PANEL -->
+
+        <section class="right-panel" id="signup">
+
+            <div class="signup-card">
+
+                <div class="signup-title">
+
+                    <h2>Create Your Account</h2>
+
+                    <p>
+                        Join JanSetu and be a part of the change.
+                    </p>
+
+                </div>
+
+
+                <form id="signupForm">
+
+                    <!-- NAME + EMAIL -->
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+
+                            <label>Full Name</label>
+
+                            <div class="input-wrapper">
+
+                                <span class="input-icon">👤</span>
+
+                                <input type="text" id="fullName" placeholder="Enter your full name" required>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>Email Address</label>
+
+                            <div class="input-wrapper">
+
+                                <span class="input-icon">✉</span>
+
+                                <input type="email" id="email" placeholder="name@gov.in" required>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- PASSWORD -->
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+
+                            <label>Password</label>
+
+                            <div class="input-wrapper">
+
+                                <span class="input-icon">🔒</span>
+
+                                <input type="password" id="password" placeholder="Create a password" required>
+
+                                <button type="button" class="toggle-password-btn" id="togglePassword" aria-label="Show password" title="Show password">
+                                    <span class="eye-icon">👁️</span>
+                                </button>
+
+                            </div>
+
+                            <p class="password-note">
+                                Password must be at least 8 characters long.
+                            </p>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>Confirm Password</label>
+
+                            <div class="input-wrapper">
+
+                                <span class="input-icon">🔒</span>
+
+                                <input type="password" id="confirmPassword" placeholder="Confirm your password"
+                                    required>
+
+                                <button type="button" class="toggle-password-btn" id="toggleConfirmPassword" aria-label="Show password" title="Show password">
+                                    <span class="eye-icon">👁️</span>
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- MOBILE -->
+
+                    <div class="form-group">
+
+                        <label>Mobile Number</label>
+
+                        <div class="input-wrapper">
+
+                            <span class="input-icon">📞</span>
+
+                            <input type="tel" id="mobile" placeholder="Enter your mobile number" required>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- TERMS -->
+
+
+
+                    <!-- CREATE ACCOUNT -->
+
+                    <button type="submit" class="create-btn" id="submitBtn">
+                        Create Account
+                    </button>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="api.js"></script>
+    <script src="mockData.js"></script>
+    <script src="signup.js"></script>
+
+</body>
+
+</html>

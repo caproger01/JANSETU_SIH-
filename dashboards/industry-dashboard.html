@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JanSetu - Industry Dashboard</title>
+    <link rel="stylesheet" href="industry-dashboard.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="top-header">
+        <div class="header-brand">
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <span style="font-size: 26px;">🇮🇳</span>
+                <div>
+                    <h1>JanSetu</h1>
+                    <p>Corporate Social Responsibility &bull; Industry Portal (Prototype)</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="header-actions">
+            <button class="notif-btn" id="open-ind-notif-btn" aria-label="Notifications" title="Notifications">
+                <i data-lucide="bell"></i>
+                <span class="notif-badge" id="ind-notif-badge">1</span>
+            </button>
+            <div style="font-size: 13px; font-weight: 600; color: var(--color-primary);">
+                <span>Tata Sustainability / L&amp;T Infrastructure</span>
+            </div>
+            <button type="button" class="logout-btn-header" id="ind-logout-btn" title="Sign Out">
+                <i data-lucide="log-out"></i>
+                <span>Logout</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="citizen-dashboard.html">Citizens</a></li>
+            <li><a href="university-dashboard.html">Universities</a></li>
+            <li><a href="industry-dashboard.html" style="font-weight: 700; border-bottom: 3px solid var(--color-saffron); padding-bottom: 4px;">Industry</a></li>
+            <li><a href="government-dashboard.html">Government Command Center</a></li>
+        </ul>
+    </nav>
+
+    <!-- Breadcrumbs -->
+    <div class="breadcrumb-bar">
+        <div class="breadcrumbs">
+            <a href="../index.html">Home</a>
+            <span class="separator">&gt;</span>
+            <a href="industry-dashboard.html">Industry</a>
+            <span class="separator">&gt;</span>
+            <span>Discover Civic Projects &amp; CSR Co-Financing</span>
+        </div>
+        <div>
+            <a href="../role.html" class="back-link">&larr; Switch Role</a>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="dashboard-body">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="role-badge-box">
+                <h2>Industry</h2>
+                <span>CORPORATE / CSR PANEL</span>
+            </div>
+
+            <nav class="sidebar-menu">
+                <a href="#discover" class="sidebar-link active">
+                    <i data-lucide="compass"></i>
+                    <span>Discover Projects</span>
+                </a>
+                <a href="#contributions" class="sidebar-link">
+                    <i data-lucide="gift"></i>
+                    <span>Support Requests</span>
+                </a>
+                <a href="#contributions" class="sidebar-link">
+                    <i data-lucide="award"></i>
+                    <span>CSR Contributions</span>
+                </a>
+                <a href="university-dashboard.html" class="sidebar-link">
+                    <i data-lucide="graduation-cap"></i>
+                    <span>Academic Partners</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Panel -->
+        <main class="main-panel">
+
+            <div class="panel-heading">
+                <h2>Corporate Civic Partnerships &amp; Project Co-Financing</h2>
+                <p>Empower university student innovations solving critical citizen grievances through CSR funding, lab equipment, and pilot infrastructure.</p>
+            </div>
+
+            <!-- Stats Metric Cards -->
+            <section class="stats-row">
+                <div class="metric-card">
+                    <span class="metric-title">Active Projects Seeking Support</span>
+                    <div class="metric-number">6</div>
+                    <p class="metric-desc">Validated by municipal bodies</p>
+                </div>
+
+                <div class="metric-card">
+                    <span class="metric-title">Corporate CSR Pledges</span>
+                    <div class="metric-number" style="color: #059669;">&dollar; 1.4M</div>
+                    <p class="metric-desc">Committed in current fiscal year</p>
+                </div>
+
+                <div class="metric-card">
+                    <span class="metric-title">Partner Companies</span>
+                    <div class="metric-number">56</div>
+                    <p class="metric-desc">Leading PSUs &amp; Tech Giants</p>
+                </div>
+
+                <div class="metric-card">
+                    <span class="metric-title">Community Beneficiaries</span>
+                    <div class="metric-number">3.2M</div>
+                    <p class="metric-desc">Citizens impacted across India</p>
+                </div>
+            </section>
+
+            <!-- Projects Available for Industry Support -->
+            <section id="discover" style="margin-top: 10px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                    <div>
+                        <h3 style="font-size: 18px; font-weight: 700; color: var(--color-primary);">Discover Vetted Civic Projects</h3>
+                        <p style="font-size: 12px; color: #555;">Each project is sponsored by an accredited university research laboratory and tied to verified citizen reports.</p>
+                    </div>
+                    <span style="font-size: 11px; font-weight: 700; color: #047857; background: #ECFDF5; padding: 4px 10px; border-radius: 12px; border: 1px solid #A7F3D0;">
+                        CSR Section 135 Compliant
+                    </span>
+                </div>
+
+                <div class="projects-grid">
+                    <!-- Project 1 -->
+                    <div class="industry-card">
+                        <div>
+                            <div class="industry-card-head">
+                                <span class="csr-badge">Civil &bull; Water Sanitation</span>
+                                <span style="font-size: 12px; font-weight: 700; color: #075844;">72% Progress</span>
+                            </div>
+                            <h4 class="industry-card-title">Smart Rural Drainage System</h4>
+                            <p style="font-size: 12px; color: #666; margin: 4px 0 10px;">
+                                Lead Institution: <strong>IIT Roorkee / Meerut Campus</strong> &bull; Mentor: <strong>Dr. S. K. Sharma</strong>
+                            </p>
+                            <p style="font-size: 13px; color: #444; line-height: 1.4; margin-bottom: 14px;">
+                                Low-cost gravity-assisted drainage channels with automated silt filtration sluices to eliminate agricultural monsoon flooding for 2,500 villagers in Meerut.
+                            </p>
+                            <div style="background: #F8FAFC; border: 1px solid #E2E8F0; padding: 8px 12px; border-radius: 4px; font-size: 12px; margin-bottom: 16px;">
+                                <strong style="color: #1E293B;">Targeted Industry Needs:</strong>
+                                <span style="color: #475569;">Equipment (Excavator lease), Pilot Construction Concrete, and IoT Telemetry Hardware.</span>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; gap: 8px; justify-content: flex-end;">
+                            <button type="button" class="btn-cancel" onclick="openOfferSupport('PRJ-2026-01', 'Smart Rural Drainage System')">View Details</button>
+                            <button type="button" class="btn-support-project" onclick="openOfferSupport('PRJ-2026-01', 'Smart Rural Drainage System')">Offer Support &rsaquo;</button>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="industry-card">
+                        <div>
+                            <div class="industry-card-head">
+                                <span class="csr-badge">Renewable Energy &bull; Clean Water</span>
+                                <span style="font-size: 12px; font-weight: 700; color: #075844;">45% Progress</span>
+                            </div>
+                            <h4 class="industry-card-title">Solar-Powered Clean Water Kiosk</h4>
+                            <p style="font-size: 12px; color: #666; margin: 4px 0 10px;">
+                                Lead Institution: <strong>Delhi Technological University</strong> &bull; Mentor: <strong>Dr. Ananya Mukherjee</strong>
+                            </p>
+                            <p style="font-size: 13px; color: #444; line-height: 1.4; margin-bottom: 14px;">
+                                Decentralized 3-stage UV/RO filtration units powered completely by solar PV micro-grids for urban slum clusters lacking potable municipal connections.
+                            </p>
+                            <div style="background: #F8FAFC; border: 1px solid #E2E8F0; padding: 8px 12px; border-radius: 4px; font-size: 12px; margin-bottom: 16px;">
+                                <strong style="color: #1E293B;">Targeted Industry Needs:</strong>
+                                <span style="color: #475569;">Funding ($15,000 for skid fabrication), Solar Inverters &amp; Battery Storage.</span>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; gap: 8px; justify-content: flex-end;">
+                            <button type="button" class="btn-cancel" onclick="openOfferSupport('PRJ-2026-02', 'Solar-Powered Clean Water Kiosk')">View Details</button>
+                            <button type="button" class="btn-support-project" onclick="openOfferSupport('PRJ-2026-02', 'Solar-Powered Clean Water Kiosk')">Offer Support &rsaquo;</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- OFFER SUPPORT MODAL -->
+    <div class="modal-backdrop" id="support-modal">
+        <div class="modal-box">
+            <div class="modal-head">
+                <div>
+                    <h3 id="support-modal-title">Offer Industry Support</h3>
+                    <p id="support-modal-sub">Collaborate with Academic Researchers</p>
+                </div>
+                <button type="button" class="close-modal-btn" id="close-support-btn">&times;</button>
+            </div>
+
+            <div class="modal-body-pad">
+                <form id="support-offer-form">
+                    <div style="margin-bottom: 14px;">
+                        <label style="display: block; font-weight: 700; margin-bottom: 4px;">Select Support Type *</label>
+                        <select id="support-type" style="width: 100%; padding: 8px 10px; border: 1px solid #D8DDDD; border-radius: 4px; font-size: 13px; font-weight: 600;" required>
+                            <option value="Funding">Funding (CSR Grant / Direct Sponsorship)</option>
+                            <option value="Equipment">Equipment (Heavy Machinery / Sensors / Solar Panels)</option>
+                            <option value="Mentorship">Mentorship (Corporate R&amp;D Technical Guidance)</option>
+                            <option value="Technology">Technology (Cloud Infrastructure / GIS Licenses)</option>
+                            <option value="Pilot Deployment">Pilot Deployment (Site Access &amp; Field Facilities)</option>
+                        </select>
+                    </div>
+
+                    <div style="margin-bottom: 14px;">
+                        <label style="display: block; font-weight: 700; margin-bottom: 4px;">Company / Enterprise Name</label>
+                        <input type="text" id="support-company" value="Tata Sustainability Cell" style="width: 100%; padding: 8px 10px; border: 1px solid #D8DDDD; border-radius: 4px; font-size: 13px;" required>
+                    </div>
+
+                    <div style="margin-bottom: 14px;">
+                        <label style="display: block; font-weight: 700; margin-bottom: 4px;">Estimated Contribution Details / Value</label>
+                        <input type="text" id="support-details" placeholder="e.g. INR 5,00,000 grant + 2 Field engineers for 3 months" style="width: 100%; padding: 8px 10px; border: 1px solid #D8DDDD; border-radius: 4px; font-size: 13px;" required>
+                    </div>
+
+                    <div style="margin-bottom: 14px;">
+                        <label style="display: block; font-weight: 700; margin-bottom: 4px;">Message to University Faculty Lead</label>
+                        <textarea id="support-notes" rows="3" placeholder="Describe how your organization would like to collaborate..." style="width: 100%; padding: 8px 10px; border: 1px solid #D8DDDD; border-radius: 4px; font-size: 12px;"></textarea>
+                    </div>
+
+                    <div class="modal-foot" style="padding-right: 0; padding-bottom: 0;">
+                        <button type="button" class="btn-cancel" id="cancel-support-btn">Cancel</button>
+                        <button type="submit" class="btn-support-project" style="background:#075844;">Submit Support Proposal</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- INDUSTRY NOTIFICATIONS MODAL -->
+    <div class="modal-backdrop" id="ind-notif-modal">
+        <div class="modal-box" style="max-width: 540px;">
+            <div class="modal-head">
+                <h3>Industry Partnership Alerts</h3>
+                <button type="button" class="close-modal-btn" id="close-ind-notif-btn">&times;</button>
+            </div>
+
+            <div class="modal-body-pad">
+                <div id="ind-notif-list">
+                    <!-- Populated dynamically -->
+                </div>
+            </div>
+
+            <div class="modal-foot">
+                <button type="button" class="btn-cancel" id="dismiss-ind-notif-btn">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../mockData.js"></script>
+    <script src="industry-dashboard.js"></script>
+</body>
+
+</html>
