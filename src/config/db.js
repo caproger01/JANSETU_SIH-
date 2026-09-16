@@ -6,13 +6,26 @@ const dotenv = require('dotenv');
 dotenv.config({ path: path.resolve(__dirname, '../../.env') });
 dotenv.config({ path: path.resolve(__dirname, '../.env') });
 
-const pool = new Pool({
-    user: process.env.DB_USER || process.env.USER,
-    host: process.env.DB_HOST || process.env.HOST || 'localhost',
-    database: process.env.DB_NAME || process.env.DATABASE || process.env.DATABSE || 'JANSETU',
-    password: process.env.DB_PASSWORD || process.env.PASSWORD,
-    port: parseInt(process.env.DB_PORT || process.env.DBPORT || '5432', 10),
-});
+let poolConfig;
+
+if (process.env.DATABASE_URL) {
+    poolConfig = {
+        connectionString: process.env.DATABASE_URL,
+        ssl: {
+            rejectUnauthorized: false
+        }
+    };
+} else {
+    poolConfig = {
+        user: process.env.DB_USER || process.env.USER,
+        host: process.env.DB_HOST || process.env.HOST || 'localhost',
+        database: process.env.DB_NAME || process.env.DATABASE || process.env.DATABSE || 'JANSETU',
+        password: process.env.DB_PASSWORD || process.env.PASSWORD,
+        port: parseInt(process.env.DB_PORT || process.env.DBPORT || '5432', 10),
+    };
+}
+
+const pool = new Pool(poolConfig);
 
 pool.on('connect', () => {
     // Database connection established

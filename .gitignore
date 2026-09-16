@@ -6,3 +6,7 @@ yarn-debug.log*
 yarn-error.log*
 .DS_Store
 Thumbs.db
+dist/
+frontend/dist/
+.vercel/
+
