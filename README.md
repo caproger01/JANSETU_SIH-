@@ -34,17 +34,23 @@ JanSetu is a comprehensive civic platform bridging **Citizens**, **Government Bo
 
 ### 2. Environment Setup
 Verify your .env file in the project root:
-`env
+```env
 PORT=5001
+
+# Local PostgreSQL OR Online Cloud Database (Render / Supabase)
+DATABASE_URL=postgresql://user:password@host:port/database
+
+# Or Individual Local Variables
 DB_USER=postgres
 DB_HOST=localhost
 DB_PORT=5432
 DB_NAME=JANSETU
 DB_PASSWORD=your_postgres_password
+
 JWT_SECRET=jansetu_production_super_secret_jwt_key_2026
 ADMIN_VIEW_KEY=jansetu_admin_test_key_2026
 GEMINI_API_KEY=your_gemini_key_optional
-`
+```
 
 ### 3. Database Migration & Seeding
 Run migrations to build all 15 tables, indexes, and constraints:
