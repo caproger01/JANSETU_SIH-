@@ -1,5 +1,6 @@
 // Centralized API client for JanSetu Frontend
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || (import.meta.env.DEV ? 'http://localhost:5001/api' : '/api');
+// In production or when served by backend, relative '/api' is used directly.
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '/api';
 
 export function getStoredToken() {
   return localStorage.getItem('jansetu_access_token');
@@ -48,7 +49,7 @@ async function apiFetch(endpoint, options = {}) {
       status: 0,
       data: {
         success: false,
-        message: 'Unable to connect to JanSetu server. Please verify backend is running on port 5001.'
+        message: 'Unable to connect to JanSetu server. Please check your network connection.'
       }
     };
   }
