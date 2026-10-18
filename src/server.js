@@ -36,7 +36,9 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Serve static frontend files from project root and uploaded evidence files
+// Serve static frontend build from frontend/dist and uploaded files
+const frontendDistPath = path.resolve(__dirname, '../frontend/dist');
+app.use(express.static(frontendDistPath));
 app.use(express.static(path.resolve(__dirname, '..')));
 app.use('/uploads', express.static(path.resolve(__dirname, '../uploads')));
 
@@ -59,16 +61,6 @@ app.use('/api/notifications', notificationRoutes);
 const AdminController = require('./controllers/adminController');
 app.get('/api/viewdataadmin', AdminController.viewDataAdmin);
 
-// Root informational endpoint
-app.get('/', (req, res) => {
-    res.status(200).json({
-        status: 'ok',
-        service: 'JanSetu Backend API',
-        message: 'JanSetu Civic Innovation & Governance Platform Backend is running successfully.',
-        documentation: '/api/health'
-    });
-});
-
 // Health check endpoints
 app.get('/health', (req, res) => {
     res.status(200).json({ status: 'ok', service: 'JanSetu Full-Stack Backend' });
@@ -78,12 +70,43 @@ app.get('/api/health', (req, res) => {
     res.status(200).json({ status: 'ok', service: 'JanSetu Full-Stack Backend' });
 });
 
+// Root informational endpoint or frontend SPA index
+app.get('/', (req, res) => {
+    const indexPath = path.join(frontendDistPath, 'index.html');
+    const fs = require('fs');
+    if (fs.existsSync(indexPath)) {
+        return res.sendFile(indexPath);
+    }
+    res.status(200).json({
+        status: 'ok',
+        service: 'JanSetu Backend API',
+        message: 'JanSetu Civic Innovation & Governance Platform Backend is running successfully.',
+        documentation: '/api/health'
+    });
+});
+
 // Database initialization
 const createUserTable = require('./data/createusertable.js');
 
 // Error handling middlewares
 const { errorHandler, notFoundHandler } = require('./middlewares/errorMiddleware');
+
+// API 404 handler (only catches /api routes)
 app.use('/api', notFoundHandler);
+
+// Single Page Application (SPA) fallback: serve frontend index.html for non-API client-side routing
+app.use((req, res, next) => {
+    // If request is a GET and not an API call
+    if (req.method === 'GET' && !req.path.startsWith('/api')) {
+        const indexPath = path.join(frontendDistPath, 'index.html');
+        const fs = require('fs');
+        if (fs.existsSync(indexPath)) {
+            return res.sendFile(indexPath);
+        }
+    }
+    next();
+});
+
 app.use(errorHandler);
 
 // Start server when executed directly as main script
