@@ -59,7 +59,21 @@ app.use('/api/notifications', notificationRoutes);
 const AdminController = require('./controllers/adminController');
 app.get('/api/viewdataadmin', AdminController.viewDataAdmin);
 
-// Health check endpoint
+// Root informational endpoint
+app.get('/', (req, res) => {
+    res.status(200).json({
+        status: 'ok',
+        service: 'JanSetu Backend API',
+        message: 'JanSetu Civic Innovation & Governance Platform Backend is running successfully.',
+        documentation: '/api/health'
+    });
+});
+
+// Health check endpoints
+app.get('/health', (req, res) => {
+    res.status(200).json({ status: 'ok', service: 'JanSetu Full-Stack Backend' });
+});
+
 app.get('/api/health', (req, res) => {
     res.status(200).json({ status: 'ok', service: 'JanSetu Full-Stack Backend' });
 });
@@ -72,20 +86,18 @@ const { errorHandler, notFoundHandler } = require('./middlewares/errorMiddleware
 app.use('/api', notFoundHandler);
 app.use(errorHandler);
 
-
-
 // Start server when executed directly as main script
 if (require.main === module) {
     createUserTable()
         .then(() => {
-            app.listen(port, () => {
-                console.log(`JanSetu Server is running on port ${port}`);
+            app.listen(port, '0.0.0.0', () => {
+                console.log(`JanSetu Server is running on port ${port} (0.0.0.0)`);
             });
         })
         .catch((err) => {
             console.error('Failed to initialize database table on startup:', err.message);
-            app.listen(port, () => {
-                console.log(`JanSetu Server is running on port ${port} (DB initialization pending)`);
+            app.listen(port, '0.0.0.0', () => {
+                console.log(`JanSetu Server is running on port ${port} (0.0.0.0, DB initialization pending)`);
             });
         });
 }
